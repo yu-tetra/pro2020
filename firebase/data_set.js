@@ -6,7 +6,7 @@ var serviceAccount = require("./serviceAccountKey.json");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   // 2. Realtime DatabaseのページでdatabaseURLを確認して反映
-  databaseURL: "https://<databaseURL>.firebaseio.com"
+  databaseURL: "https://project2020-93dda.firebaseio.com/"
 });
 
 var db = admin.database();
