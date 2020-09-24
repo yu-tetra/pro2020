@@ -1,0 +1,36 @@
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <script src="../jquery.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h1>部屋制作</h1>
+
+    <form>
+        ユーザー名（〇〇先生）を登録<br>
+        <input type="text" id="user">
+    </form>
+    
+    <form>
+        パスワードを設定（8字以上半角英数組合せ<br>
+        <input type="text" id="pass">
+    </form>
+
+    <button>制作する</button>
+
+    <script>​
+        $('#submit').on('click',function(){//送信
+            var name = $('#user').val();
+            var password = $('#pass').val();
+            $.ajax({
+            url:"create.php",
+            type:"GET",
+            data:{name:name,pass:pass}
+            })
+        })​
+    </script>
+        
+</body>
+</html>
