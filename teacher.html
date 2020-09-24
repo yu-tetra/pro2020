@@ -23,7 +23,7 @@
     var admin = require("firebase-admin");
 
 // 1. サービスアカウント鍵を生成しserviceAccountKey.jsonでリネームしてフォルダ直下に配置
-        var serviceAccount = require("./serviceAccountKey.json");
+    var serviceAccount = require("./serviceAccountKey.json");
 
     admin.initializeApp({
         credential: admin.credential.cert(serviceAccount),
@@ -32,13 +32,10 @@
     });
 
     var db = admin.database();
-    var ref = db.ref("protoout/studio");
+
 
     $('#submit').on('click',function(){//送信
-        var usersRef = ref.child("sensor");
-        usersRef.set({
-        "temperature": 26,
-        "humidity": 43
+        var ref = db.ref("protoout/studio");
     });
 })​
 
