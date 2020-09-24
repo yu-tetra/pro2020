@@ -4,12 +4,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Topページ</title>
+    <title>黒板</title>
 </head>
 
 <body>
     <canvas id="canvas" width="1100" height="600" style="border: solid 2px #000;box-sizing: border-box;"></canvas>
-    <div class="option">
+    <input type="button" value="pen" id="pen">
+    <input type="button" value="eraser" id="eraser">
     <input type="button" value="clear" id="clear">
     <div id="result"><img src=""></div>
    
@@ -55,6 +56,18 @@
         }
         ctx.stroke();
       };
+
+      //ペン
+      $("#pen").click(function(){
+        cnvBold = 3;    //線の太さ
+        cnvColor = "255, 255, 255, 1";  //線の色
+      })
+
+      //消しゴム
+       $("#eraser").click(function(){
+        cnvBold = 15;    //線の太さ
+        cnvColor = "0, 70, 67, 1";  //線の色
+      })
 
       // 描画クリア
       $("#clear").click(function(){
