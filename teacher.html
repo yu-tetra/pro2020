@@ -18,17 +18,30 @@
 
     <button>制作する</button>
 
-    <script>​
-        $('#submit').on('click',function(){//送信
-            var name = $('#user').val();
-            var password = $('#pass').val();
-            $.ajax({
-            url:"create.php",
-            type:"GET",
-            data:{name:name,pass:pass}
-            })
-        })​
-    </script>
+<script>​
         
+    var admin = require("firebase-admin");
+
+// 1. サービスアカウント鍵を生成しserviceAccountKey.jsonでリネームしてフォルダ直下に配置
+        var serviceAccount = require("./serviceAccountKey.json");
+
+    admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount),
+  // 2. Realtime DatabaseのページでdatabaseURLを確認して反映
+        databaseURL: "https://project2020-93dda.firebaseio.com/"
+    });
+
+    var db = admin.database();
+    var ref = db.ref("protoout/studio");
+
+    $('#submit').on('click',function(){//送信
+        var usersRef = ref.child("sensor");
+        usersRef.set({
+        "temperature": 26,
+        "humidity": 43
+    });
+})​
+
+</script>        
 </body>
 </html>
