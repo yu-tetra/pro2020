@@ -2,6 +2,26 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+     // Your web app's Firebase configuration
+     var firebaseConfig = {
+        apiKey: "AIzaSyBpmypIXLxfFpHxcAWRnF2vQB_ONU6OISA",
+        authDomain: "project2020-93dda.firebaseapp.com",
+        databaseURL: "https://project2020-93dda.firebaseio.com",
+        projectId: "project2020-93dda",
+        storageBucket: "project2020-93dda.appspot.com",
+        messagingSenderId: "453159572734",
+        appId: "1:453159572734:web:e3f6b15cb3bb4b1b9401af"
+     };
+     // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+</script>
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="./CSS/content.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,31 +39,18 @@
 
     <button>制作する</button>
 
-<script>​
-        
-    var admin = require("firebase-admin");
-
-// 1. サービスアカウント鍵を生成しserviceAccountKey.jsonでリネームしてフォルダ直下に配置
-    var serviceAccount = require("./serviceAccountKey.json");
-
-    admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount),
-  // 2. Realtime DatabaseのページでdatabaseURLを確認して反映
-        databaseURL: "https://project2020-93dda.firebaseio.com/"
-    });
-
-    var db = admin.database();
+<script>
+$(function(){
+    function Data(user, pass) {
+  firebase.database().ref('users/' + userId).set({
+    username: user,
+    pass: pass
+  });
+}
+})
 
 
-    $('#submit').on('click',function(){//送信
-        db.ref('test1').set("hoge");
-        db.ref('test2').set({
-        "fuga1":"fuga",
-        "fuga2":"fugafuga"
-        });
-    });
-})​
-
-</script>        
+</script>
+    
 </body>
 </html>
