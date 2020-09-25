@@ -43,7 +43,7 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
 
-        const db = firebase.database();
+        var defaultDatabase = firebase.database();
         
         $(function(){
             let room = "chat_room";
