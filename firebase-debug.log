@@ -1,0 +1,55 @@
+[debug] [2020-09-25T03:20:47.504Z] ----------------------------------------------------------------------
+[debug] [2020-09-25T03:20:47.506Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Sasaki Yuho\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-09-25T03:20:47.506Z] CLI Version:   8.11.1
+[debug] [2020-09-25T03:20:47.506Z] Platform:      win32
+[debug] [2020-09-25T03:20:47.506Z] Node Version:  v12.18.4
+[debug] [2020-09-25T03:20:47.508Z] Time:          Fri Sep 25 2020 12:20:47 GMT+0900 (GMT+09:00)
+[debug] [2020-09-25T03:20:47.508Z] ----------------------------------------------------------------------
+[debug] [2020-09-25T03:20:47.508Z] 
+[debug] [2020-09-25T03:20:47.515Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-09-25T03:20:47.516Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Sasaki Yuho
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2020-09-25T03:20:51.818Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/project2020-93dda  
+ 
+[debug] [2020-09-25T03:20:52.281Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 25 Sep 2020 03:20:52 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  Using project project2020-93dda (project2020) 
+[info] 
+=== Database Setup
+[info] 
+[info] Firebase Realtime Database Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2020-09-25T03:20:54.109Z] >>> HTTP REQUEST GET https://project2020-93dda.firebaseio.com/.settings/rules.json  
+ 
+[debug] [2020-09-25T03:20:54.724Z] <<< HTTP RESPONSE 200 {"server":"nginx","date":"Fri, 25 Sep 2020 03:20:54 GMT","content-type":"application/json; charset=utf-8","content-length":"78","connection":"keep-alive","access-control-allow-origin":"*","cache-control":"no-cache","strict-transport-security":"max-age=31556926; includeSubDomains; preload"}
+[info] +  Database Rules for project2020-93dda have been downloaded to database.rules.json. 
+[info] Future modifications to database.rules.json will update Database Rules when you run
+[info] firebase deploy.
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 

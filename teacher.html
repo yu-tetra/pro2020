@@ -1,27 +1,6 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-
-    <script>
-     // Your web app's Firebase configuration
-     var firebaseConfig = {
-        apiKey: "AIzaSyBpmypIXLxfFpHxcAWRnF2vQB_ONU6OISA",
-        authDomain: "project2020-93dda.firebaseapp.com",
-        databaseURL: "https://project2020-93dda.firebaseio.com",
-        projectId: "project2020-93dda",
-        storageBucket: "project2020-93dda.appspot.com",
-        messagingSenderId: "453159572734",
-        appId: "1:453159572734:web:e3f6b15cb3bb4b1b9401af"
-     };
-     // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-</script>
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="./CSS/content.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,18 +21,38 @@
 
     <button class="btn btn-primary btn-lg">制作する</button>
 
-<script>
-$(function(){
-    function Data(user, pass) {
-  firebase.database().ref('users/' + userId).set({
-    username: user,
-    pass: pass
-  });
-}
-})
 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
 
-</script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script> 
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBpmypIXLxfFpHxcAWRnF2vQB_ONU6OISA",
+            authDomain: "project2020-93dda.firebaseapp.com",
+            databaseURL: "https://project2020-93dda.firebaseio.com",
+            projectId: "project2020-93dda",
+            storageBucket: "project2020-93dda.appspot.com",
+            messagingSenderId: "453159572734",
+            appId: "1:453159572734:web:e3f6b15cb3bb4b1b9401af"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        const db = firebase.database();
+        
+        $(function(){
+            let room = "chat_room";
+            db.ref(room).push({
+                title: "タイトル",
+                body: "本文",
+            });
+        })
+    </script>
     
 </body>
 </html>
