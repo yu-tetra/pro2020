@@ -1,7 +1,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="./CSS/content.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +39,11 @@
 
 
     $('#submit').on('click',function(){//送信
-        var ref = db.ref("protoout/studio");
+        db.ref('test1').set("hoge");
+        db.ref('test2').set({
+        "fuga1":"fuga",
+        "fuga2":"fugafuga"
+        });
     });
 })​
 
