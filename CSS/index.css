@@ -1,4 +1,18 @@
 body{
-    margin: 150px;
+    margin: 150px 0 0 0;
     text-align: center;
+}
+
+h1{
+    font-size: 320%;
+}
+
+.memo{
+    display: flex;
+    justify-content: center;
+}
+
+.image{
+    width: 55%;
+    height: auto;
 }

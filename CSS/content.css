@@ -1,4 +1,40 @@
 body{
     margin-top: 80px;
-    margin-left: 130px;
+    margin-left: 140px;
+}
+
+h1{
+    font-size: 280%;
+}
+
+form{
+    margin-left: 50px;
+    font-size: 130%;
+}
+
+::placeholder {
+    font-size: 1.3em;
+  }
+
+.in{
+    margin-left: 20px;
+    width: 480px;
+    height: 45px;
+}
+
+button{
+    margin-left: 600px;
+    font-size: 1.5em;
+    padding: 8px 10px;
+    background-color: #f9bc60;
+}
+
+p{
+    margin-left: 50px;
+    font-size: 130%;
+}
+
+a {
+    color: #abd1c6;
+    margin-left: 500px;
 }
