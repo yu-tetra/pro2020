@@ -11,15 +11,15 @@
 
     <form>
         ユーザー名を登録<br>
-        <input type="text" id="user" value="" class="in" placeholder="例)〇〇先生"><br>
+        <input type="text" id="user" class="in" placeholder="例)〇〇先生"><br>
 
         <br>
 
         パスワードを設定<br>
-        <input type="text" id="pass" value="" class="in" placeholder="半角英数8文字以上">
+        <input type="text" id="pass" class="in" placeholder="半角英数8文字以上">
     </form>
 
-    <button class="btn btn-primary btn-lg">制作する</button>
+    <button class="btn btn-primary btn-lg" id="submit">制作する</button>
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -46,14 +46,17 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
 
-        var defaultDatabase = firebase.database();
+        var db = firebase.database();
         
-        $(function(){
-            let room = "chat_room";
+        $('#submit').on('click',function(){
+            var name = $('#user').val();
+            var pass = $('#pass').val();
+            let room = "room";
             db.ref(room).push({
-                title: "タイトル",
-                body: "本文",
+                name: name,
+                pass: pass,
             });
+            location.href="teacher_login.html";
         })
     </script>
     
