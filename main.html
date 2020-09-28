@@ -1,7 +1,6 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link rel="stylesheet" href="./CSS/blackboard.css">
     <title>黒板</title>
@@ -15,7 +14,8 @@
     
     <div id="result"><img src=""></div>
    
-    <script src="/canvas.js"></script>
+    <script src="canvas.js"></script>
+    <script src="chat.js"></script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
@@ -44,5 +44,11 @@
 
     </script>
 
+    <div id="chat">
+        <div>
+            <textarea id="message" row="10"></textarea>
+            <button id="btn">送信</button>
+        </div>
+    </div>
 </body>
 </html>

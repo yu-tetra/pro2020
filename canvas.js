@@ -1,4 +1,4 @@
- // canvas
+// canvas
  var cnvs = document.getElementById('canvas');
  var ctx = cnvs.getContext('2d');
 
