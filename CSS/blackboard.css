@@ -11,3 +11,13 @@ body{
 canvas{
     background-color: #004643;
 }
+
+.pen{
+    width: 100px;
+    height: 40px;
+}
+
+.eraser{
+    width: 100px;
+    height: 90px;
+}
