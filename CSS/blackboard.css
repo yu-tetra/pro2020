@@ -4,6 +4,8 @@ body{
     background-color: #004643;
     /* font-family: "Kokoro"; */
     color: white;
+    width: auto;
+    height: auto;
 }
 
 canvas{
