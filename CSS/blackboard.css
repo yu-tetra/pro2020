@@ -12,6 +12,22 @@ canvas{
     background-color: #004643;
 }
 
+.menu{
+    writing-mode: vertical-rl;
+}
+
+.txt{
+    writing-mode: vertical-rl;
+}
+
+.straight{
+    writing-mode: vertical-rl;
+}
+
+.wave{
+    writing-mode: vertical-rl;
+}
+
 .pen{
     width: 100px;
     height: 40px;
