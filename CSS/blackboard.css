@@ -12,19 +12,19 @@ canvas{
     background-color: #004643;
 }
 
-.menu{
+#menu{
     writing-mode: vertical-rl;
 }
 
-.txt{
+#txt{
     writing-mode: vertical-rl;
 }
 
-.straight{
+#straight{
     writing-mode: vertical-rl;
 }
 
-.wave{
+#wave{
     writing-mode: vertical-rl;
 }
 
