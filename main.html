@@ -15,7 +15,7 @@
     <div id="result"><img src=""></div>
    
     <script src="canvas.js"></script>
-    <script src="chat.js"></script>
+   
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
@@ -40,7 +40,6 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
 
-        var db = firebase.database();
 
     </script>
 
@@ -48,7 +47,9 @@
         <div>
             <textarea id="message" row="10"></textarea>
             <button id="btn">送信</button>
+            <div id="disp"></div>
         </div>
     </div>
+    <script src="chat.js"></script>
 </body>
 </html>
