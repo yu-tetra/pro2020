@@ -20,6 +20,6 @@ database.ref(roomc).on("child_added", function(data) {
    const v = data.val();
    const k = data.key;
    let str = "";
-   str += '<div class="text">メッセージ：'+v.message+'</div><hr>';
+   str += v.message+'<hr>';
    disp.innerHTML += str;
 });
