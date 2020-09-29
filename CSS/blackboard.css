@@ -49,3 +49,22 @@ canvas{
     justify-content: space-between;
     align-items: flex-end;
 }
+
+#chat{
+    width: 300px;
+    height: auto;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+
+}
+
+.imag{
+    position: relative;
+}
+
+.imgSample{
+    position: absolute;
+	right: 0;
+	bottom: 0;
+}
