@@ -27,5 +27,10 @@ objFile.addEventListener("change", function(evt) {
     var ref = firebase.storage().ref().child(image.name);
     ref.put(image).then(function(snapshot) {
       alert('アップロードしました');
+
+      ref.getDownloadURL().then(function(url){
+      console.log(url);
+      document.getElementById('imgSample').src = url;
+    })
     });
 }, false);
