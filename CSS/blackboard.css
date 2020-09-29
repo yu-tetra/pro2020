@@ -4,8 +4,8 @@ body{
     background-color: #004643;
     /* font-family: "Kokoro"; */
     color: white;
-    width: auto;
-    height: auto;
+    margin: 0;
+    padding: 0;
 }
 
 canvas{
@@ -41,4 +41,11 @@ canvas{
 .clear{
     width: 100px;
     height: 100px;
+}
+
+.tool{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
 }

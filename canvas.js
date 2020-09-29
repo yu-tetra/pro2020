@@ -10,9 +10,6 @@
  var clickFlg = 0;  // クリック中の判定 1:クリック開始 2:クリック中
  var bgColor = "rgb(0,70,67)";
 
- // canvasの背景色を設定(指定がない場合にjpeg保存すると背景が黒になる)
- setBgColor();
-
  // canvas上でのイベント
  $("#canvas").mousedown(function(){
    clickFlg = 1; // マウス押下開始
@@ -57,9 +54,3 @@
    ctx.clearRect(0,0,cnvWidth,cnvHeight);
    setBgColor();
  });
-
- function setBgColor(){
-   // canvasの背景色を設定(指定がない場合にjpeg保存すると背景が黒になる)
-   ctx.fillStyle = bgColor;
-   ctx.fillRect(0,0,cnvWidth,cnvHeight);
- }
