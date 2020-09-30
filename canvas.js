@@ -55,6 +55,21 @@
    setBgColor();
  });
 
+
+/// 長押しを検知する閾値
+var LONGPRESS = 1500;
+/// 長押し実行タイマーのID
+var timerId;
+ 
+/// 長押し・ロングタップを検知する
+$('.palette').on("mousedown touchstart",function(){
+  timerId = setTimeout(function(){
+    /// 長押し時（Longpress）のコード
+  }, LONGPRESS);
+}).on("mouseup mouseleave touchend",function(){
+  clearTimeout(timerId);
+});
+
 //jQueryから色コード取得
 $(function(){
   $('#colorPicker').on('change', function(e){
