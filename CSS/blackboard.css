@@ -51,10 +51,16 @@ canvas{
 }
 
 #chat{
+    position: fixed;
+    top: 0;
+    right: 0;
     width: 300px;
-    height: 400px;
+}
+#disp{
+    width: 300px;
+    height: 380px;
     position: absolute;
-    top: 0px;
+    top: 30px;
     right: 0px;
     overflow: auto;
 
@@ -62,8 +68,10 @@ canvas{
 
 #imag{
     width: 300px;
+    height: 150px;
     position: absolute;
 	right: 0;
     bottom: 0;
+    padding: 0;
     margin: 0;
 }
