@@ -52,10 +52,11 @@ canvas{
 
 #chat{
     width: 300px;
-    height: auto;
+    height: 400px;
     position: absolute;
     top: 0px;
     right: 0px;
+    overflow: auto;
 
 }
 
@@ -65,10 +66,4 @@ canvas{
 	right: 0;
     bottom: 0;
     margin: 0;
-}
-
-.imgSample{
-    position: absolute;
-	right: 0;
-	bottom: 0;
 }
