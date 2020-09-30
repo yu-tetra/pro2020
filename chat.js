@@ -3,7 +3,7 @@ var database = firebase.database();
 let roomc = "chat_room";
 const btn = document.getElementById("btn");
 const message = document.getElementById("message");
-const disp = document.getElementById("disp");
+const disp = document.getElementById("tdisp");
 
 //送信処理
 btn.addEventListener('click', function() {
@@ -20,6 +20,6 @@ database.ref(roomc).on("child_added", function(data) {
    const v = data.val();
    const k = data.key;
    let str = "";
-   str += v.message+'<hr>';
+   str += '<td>'+v.message+'</td>';
    disp.innerHTML += str;
 });
