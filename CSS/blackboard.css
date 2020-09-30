@@ -79,7 +79,6 @@ canvas{
 }
 
 #imgSample{
-    width: auto;
+    width: 300px;
     height: auto;
-    
 }
