@@ -54,3 +54,12 @@
    ctx.clearRect(0,0,cnvWidth,cnvHeight);
    setBgColor();
  });
+
+//jQueryから色コード取得
+$(function(){
+  $('#colorPicker').on('change', function(e){
+    var color = e.detail[0];
+    $(this).val(color);
+    console.log("picked color : ", color);
+  });
+});
