@@ -12,6 +12,13 @@ canvas{
     background-color: #004643;
 }
 
+.dcanvas{
+    width: 80%;
+    height: 80%;
+    padding: 0;
+    margin: 0;
+}
+
 #menu{
     writing-mode: vertical-rl;
 }

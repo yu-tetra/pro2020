@@ -3,8 +3,16 @@
  var ctx = cnvs.getContext('2d');
 
  // 変数宣言
- const cnvWidth = 1100;
- const cnvHeight = 600;
+ var w = $('.dcanvas').width();
+ console.log(w);
+ var h = $('.dcanvas').height()
+ console.log(h);
+ const cnvWidth = w;
+ const cnvHeight = h;
+
+$('#canvas').attr('width', w);
+$('#canvas').attr('height', h);
+
  var cnvColor = "255, 255, 255, 1";  // 線の色(赤、緑、青、透明度)初期値
  var cnvBold = 3;  // 線の太さ
  var clickFlg = 0;  // クリック中の判定 1:クリック開始 2:クリック中

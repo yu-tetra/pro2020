@@ -8,7 +8,9 @@
 </head>
 
 <body>
-    <canvas id="canvas" width=950% height=490% style="border: solid 2px #000;box-sizing: border-box;"></canvas>
+<div class="dcanvas">
+    <canvas id="canvas" style="border: solid 2px #000;box-sizing: border-box;"></canvas>
+</div>
     
     <div id="tool" class="tool">
         <label id="menu">メニュー</label>
@@ -20,7 +22,9 @@
             <img src="./Picture/chalk_white.png" title="チョーク" class="pen" value="pen" id="pen">
             <md-color-picker id="colorPicker" class="palette1" color-margin="6" colors-per-row="5" 
             color-size="40" default-tint="500" fixedMinHeight="true" 
-            palette="material-full" use-spectrum-picker="true" value="#2196f3"></md-color-picker>
+            palette="material-full" use-spectrum-picker="true" value="#2196f3">
+            <button>close</button>
+        </md-color-picker>
         </div>
          
         <img src="./Picture/school_kokubankeshi.png" title="黒板消し" class="eraser" id="eraser">
