@@ -62,19 +62,32 @@ var LONGPRESS = 1500;
 var timerId;
  
 /// 長押し・ロングタップを検知する
-$('.palette').on("mousedown touchstart",function(){
+$('.pen').on("mousedown touchstart",function(){
   timerId = setTimeout(function(){
     /// 長押し時（Longpress）のコード
+    showpallete();
   }, LONGPRESS);
 }).on("mouseup mouseleave touchend",function(){
   clearTimeout(timerId);
 });
 
+//パレット表示
+function showpallete(){
+  var wObjballoon	= document.getElementById("colorPicker");
+  if (wObjballoon.className == "palette1"){
+  wObjballoon.className = "palette";
+  }else{
+  wObjballoon.className = "palette1";
+  }
+}
+
 //jQueryから色コード取得
-$(function(){
-  $('#colorPicker').on('change', function(e){
-    var color = e.detail[0];
-    $(this).val(color);
-    console.log("picked color : ", color);
-  });
-});
+var picker = document.getElementById('colorPicker');
+function colorChanged(event){
+  var color = event.detail[0]
+  console.log('color:' + color)
+  picker.value = color
+  cnvColor = color
+  console.log('ペン：' + cnvColor)
+}
+picker.addEventListener('change',colorChanged)
