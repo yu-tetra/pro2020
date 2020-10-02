@@ -5,11 +5,11 @@
  // 変数宣言
  const cnvWidth = 1100;
  const cnvHeight = 600;
- var cnvColor = "255, 255, 255, 1";  // 線の色(赤、緑、青、透明度)
+ var cnvColor = "255, 255, 255, 1";  // 線の色(赤、緑、青、透明度)初期値
  var cnvBold = 3;  // 線の太さ
  var clickFlg = 0;  // クリック中の判定 1:クリック開始 2:クリック中
  var bgColor = "rgb(0,70,67)";
- var rgba_code = "255, 255, 255, 1"; 
+ var rgba_code = "255, 255, 255, 1"; //線の色
 
  // canvas上でのイベント
  $("#canvas").mousedown(function(){

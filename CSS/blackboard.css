@@ -44,17 +44,19 @@ canvas{
     position: absolute;                   /* 親要素を基準 */
     display: inline;                      /* 要素をインラインとして表示 */
     padding: 2px;                         /* テキストの前後の余白 */
-    background-color: rgba(102, 102, 255, 0.50);       /* 背景色（透明度） */
-    width:300px;                          /* 吹き出し全体の幅 */
-    left : 1%;                           /* 表示位置 */
+    background-color:rgba(171,209,198,0.5);    /* 背景色（透明度） */
+    width: 280px;                          /* 吹き出し全体の幅 */
+    left : 30%;                           /* 表示位置 */
+    bottom : 100%;                        /* 表示位置 */
+    margin-bottom : 12px;                 /* 表示位置 */
 }
-
+ 
 .palette:after{
-    border-left: 12px solid rgba(102, 102, 255, 0.50);   /* 吹き出し口の幅・色 */
+    border-left: 12px solid rgba(171,209,198,0.5);   /* 吹き出し口の幅・色 */
     border-top: 10px solid transparent;     /* 吹き出し口の高さ１／２ */
     border-bottom: 10px solid transparent;  /* 吹き出し口の高さ１／２ */
-    right: -12px;                           /* 吹き出し口の位置調整 */
-    top: 5%;                                /* 吹き出し口の縦位置 */
+    bottom: -12px;                           /* 吹き出し口の位置調整 */
+    bottom: 5%;                                /* 吹き出し口の縦位置 */
     content: "";                       /* コンテンツの挿入 */
     position: absolute;                /* 親要素を基準 */
   }
@@ -69,11 +71,13 @@ canvas{
     height: 100px;
 }
 
-.tool{
+#tool{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
+    height: 180px;
+    width: 400px;
 }
 
 #chat{
