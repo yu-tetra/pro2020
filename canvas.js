@@ -58,7 +58,7 @@
 
 
 /// 長押しを検知する閾値
-var LONGPRESS = 1500;
+var LONGPRESS = 500;
 /// 長押し実行タイマーのID
 var timerId;
  
