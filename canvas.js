@@ -9,6 +9,7 @@
  var cnvBold = 3;  // 線の太さ
  var clickFlg = 0;  // クリック中の判定 1:クリック開始 2:クリック中
  var bgColor = "rgb(0,70,67)";
+ var rgba_code = "255, 255, 255, 1"; 
 
  // canvas上でのイベント
  $("#canvas").mousedown(function(){
@@ -40,7 +41,7 @@
  //ペン
  $("#pen").click(function(){
    cnvBold = 3;    //線の太さ
-   cnvColor = "255, 255, 255, 1";  //線の色
+   cnvColor = rgba_code;  //線の色
  })
 
  //消しゴム
@@ -84,10 +85,21 @@ function showpallete(){
 //jQueryから色コード取得
 var picker = document.getElementById('colorPicker');
 function colorChanged(event){
-  var color = event.detail[0]
-  console.log('color:' + color)
-  picker.value = color
-  cnvColor = color
-  console.log('ペン：' + cnvColor)
+  var color = event.detail[0];
+  console.log('color:' + color);
+  picker.value = color;
+  cnvColor = getRgba(color);
+  console.log(cnvColor);
 }
-picker.addEventListener('change',colorChanged)
+picker.addEventListener('change',colorChanged);
+
+//カラーコードのRGBA変換
+function getRgba(color,alpha = 1){
+
+  var red= parseInt(color.substring(1,3), 16);
+  var green = parseInt(color.substring(3,5), 16);
+  var blue  = parseInt(color.substring(5,7), 16);
+  rgba_code  = red + ',' + green + ',' + blue + ',' + alpha;
+
+  return rgba_code;
+}
