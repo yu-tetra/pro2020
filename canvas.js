@@ -111,3 +111,9 @@ function getRgba(color,alpha = 1){
 
   return rgba_code;
 }
+
+//カラーピッカーの閉じボタン
+document.getElementById("close").onclick = function(){
+  var wObjballoon	= document.getElementById("colorPicker");
+  wObjballoon.className = "palette1";
+};
