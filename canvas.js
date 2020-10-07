@@ -117,3 +117,28 @@ document.getElementById("close").onclick = function(){
   var wObjballoon	= document.getElementById("colorPicker");
   wObjballoon.className = "palette1";
 };
+
+//メニュー（クリック）
+document.getElementById("menu").onclick = function(){
+  showmenu();
+};
+
+//メニュー表示・非表示
+function showmenu(){
+  var menustatus = document.getElementById("menulist");
+  if (menustatus.className == "menulist1"){
+    menustatus.className = "menulist";
+  }else{
+    menustatus.className = "menulist1";
+  }
+}
+
+document.getElementById("exit").onclick = function(){
+  var exitresult = confirm("部屋を退出しますか？");
+
+  if(exitresult){
+    location.href= "exit.html";
+  }else{
+    return;
+  }
+}
