@@ -46,6 +46,25 @@ canvas{
     writing-mode: vertical-rl;
 }
 
+.txtform1{
+    display: none;
+}
+
+.txtform {
+    position: absolute;                   /* 親要素を基準 */
+    display: inline;                      /* 要素をインラインとして表示 */
+    padding: 2px;                         /* テキストの前後の余白 */
+    background-color:rgba(171,209,198,0.5);    /* 背景色（透明度） */
+    width: 190px;                          /* 吹き出し全体の幅 */
+   /* left : 6%;                            表示位置 */
+   /*  bottom: 15%; */
+}
+ 
+.txtform:after {
+    content: "";                       /* コンテンツの挿入 */
+    position: absolute;                /* 親要素を基準 */
+  }
+
 #straight{
     writing-mode: vertical-rl;
 }

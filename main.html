@@ -16,11 +16,21 @@
         <div>
             <label id="menu">メニュー</label>
             <p id="menulist" class="menulist1">
-                <label id="exit" class="exit">退室</label>
+                <label id="exit" class="exit">退室</label><br>
+                <button id="m_close">閉じる</button>
             </p>
         </div>
 
+        
         <label id="txt">文字入力</label>
+        <div id="txtform" class="txtform1">
+            <form>
+                <input type="text" id="inputtxt" value="">
+                <input type="button" id="sendtxt" value="送信"><br>
+            </form>
+            <button id="t_close">閉じる</button>
+        </div>
+        
         <label id="straight">直線を引く</label>
         <label id="wave">波線を引く</label>
 
@@ -29,7 +39,7 @@
             <md-color-picker id="colorPicker" class="palette1" color-margin="6" colors-per-row="5" 
             color-size="40" default-tint="500" fixedMinHeight="true" 
             palette="material-full" use-spectrum-picker="true" value="#2196f3">
-            <button id="close">閉じる</button>
+            <button id="c_close">閉じる</button>
         </md-color-picker>
         </div>
          
@@ -46,7 +56,6 @@
     <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
