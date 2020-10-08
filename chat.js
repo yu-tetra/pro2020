@@ -1,25 +1,25 @@
-var database = firebase.database();
+var db = firebase.firestore();
 
-let roomc = "chat_room";
+var place = db.collection("rooms").doc("roomID").collection("chatroom");
+
 const btn = document.getElementById("btn");
-const message = document.getElementById("message");
+var message = document.getElementById("message");
 const disp = document.getElementById("tdisp");
+var time = firebase.firestore.FieldValue.serverTimestamp()
 
 //送信処理
-btn.addEventListener('click', function() {
-   var now = new Date();
-   database.ref(roomc).push({
-       message: message.value,
+btn.addEventListener('click', ()=> {
+   console.log(message.value);
+   place.add({
+      time: message.value,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
    });
-   console.log(message);
-   message.value="";
 });
 
 //受信処理
-database.ref(roomc).on("child_added", function(data) {
-   const v = data.val();
-   const k = data.key;
-   let str = "";
-   str += '<td>'+v.message+'</td>';
-   disp.innerHTML += str;
+place.get().then(function(querySnapshot) {
+   querySnapshot.forEach(function(doc) {
+       // doc.data() is never undefined for query doc snapshots
+       console.log(doc.id, " => ", doc.data());
+   });
 });
