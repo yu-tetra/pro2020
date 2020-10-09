@@ -125,7 +125,7 @@ canvas{
     width: 300px;
 }
 #disp{
-    width: 300px;
+    width: 20%;
     height: 330px;
     position: absolute;
     top: 30px;
