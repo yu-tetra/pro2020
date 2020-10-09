@@ -229,3 +229,53 @@ var mouseY;
     ctx.fillText(text,mouseX,mouseY);
 }
 //テキストツールここまで
+
+
+//直線ツール
+let oldX = null;//始点
+let oldY = null;//始点
+let pX = null;//終点
+let pY = null;//終点
+let can_mouse_event = false;
+
+document.getElementById("straight").onclick = function(){
+  st_tool();
+}
+
+function st_tool(){
+  cnvColor = "255, 255, 255, 0";
+//始点を設定
+  $(cnvs).on('mousedown.st',function(e){
+    oldX = e.offsetX;
+    oldY = e.offsetY;
+    can_mouse_event = true;
+  });
+
+  //終点を設定/始点~終点までを線で結ぶ
+  $(cnvs).on('mouseup.st',function(e){
+    can_mouse_event = false;
+    pX = e.offsetX;
+    pY = e.offsetY;
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 3;
+    ctx.lineJoin  = "round";
+    ctx.lineCap   = "round";
+    ctx.beginPath();
+    ctx.moveTo(oldX,oldY);
+    ctx.lineTo(pX,pY);
+    ctx.stroke();
+
+    $(cnvs).off('mousedown.st');
+    $(cnvs).off('mouseup.st');
+    $(cnvs).off('mouseout.st');
+
+    //描画に戻す
+    cnvColor = rgba_code; //線の色
+    cnvBold = 3;  // 線の太さ
+  });
+  
+  $(cnvs).on('mouseout.st',function(e){
+    can_mouse_event = false;
+  });
+}
+//直線ツールここまで
