@@ -2,8 +2,6 @@ var db = firebase.firestore();
 
 var place = db.collection("rooms").doc("roomID").collection("chatroom").orderBy("time");
 
-
-location.reload();
 place.onSnapshot((snapshot)=> {
     snapshot.docChanges().forEach((change) => {
        if(change.type === "added"){
