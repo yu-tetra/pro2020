@@ -11,3 +11,5 @@ place.onSnapshot((snapshot)=> {
        }
     });
  });
+
+ $('#tdisp').empty();
