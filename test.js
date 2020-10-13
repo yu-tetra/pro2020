@@ -7,9 +7,9 @@ place.onSnapshot((snapshot)=> {
        if(change.type === "added"){
           // doc.data() is never undefined for query doc snapshots
           $('#tdisp').append('<tr><td>'+change.doc.data().chat+'</td></tr>');
-          console.log(change.doc.data())
        }
     });
  });
 
- $('#tdisp').empty();
+ var obj = document.getElementById("disp");
+obj.scrollTop = obj.scrollHeight;

@@ -136,17 +136,23 @@ canvas{
 
 }
 
-#imag{
-    width: 18%;
+#upimg{
+    width: 20%;
     height: 100px;
     position: absolute;
-	right: 0;
-    bottom: 80px;
+    right: 0;
+    bottom: 0;
     padding: 0;
     margin: 0;
+    padding: 0;
 }
 
 #imgSample{
+    position: absolute;
+    right: 0;
+    bottom: 80;
+    padding: 0;
+    margin: 0;
     width: 17%;
     height: auto;
 }
