@@ -9,7 +9,6 @@ place.onSnapshot((snapshot)=> {
           $('#tdisp').append('<tr><td>'+change.doc.data().chat+'</td></tr>');
        }
     });
+    document.getElementById("disp").scrollBy(0, 330);
  });
 
- var obj = document.getElementById("disp");
-obj.scrollTop = obj.scrollHeight;
