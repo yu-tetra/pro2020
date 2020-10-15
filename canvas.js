@@ -4,7 +4,9 @@
 
  // 変数宣言
  var w = $('.dcanvas').width();
+ console.log(w);
  var h = $('.dcanvas').height()
+ console.log(h);
  const cnvWidth = w;
  const cnvHeight = h;
 
@@ -190,7 +192,6 @@ var mouseY;
 
       //css書き換え（表示位置）
       var txtform = document.getElementById('txtform');
-
       txtform.style.left = mouseX;
       txtform.style.top = mouseY;
 
@@ -230,10 +231,10 @@ var mouseY;
 
 
 //直線ツール
-let oldX = null;//始点
-let oldY = null;//始点
-let pX = null;//終点
-let pY = null;//終点
+let sX = null;  //始点
+let sY = null;  //始点
+let gX = null;  //終点
+let gY = null;  //終点
 let can_mouse_event = false;
 
 document.getElementById("straight").onclick = function(){
@@ -241,33 +242,34 @@ document.getElementById("straight").onclick = function(){
 }
 
 function st_tool(){
+//クリックした際描画されないようペンを透明に
   cnvColor = "255, 255, 255, 0";
 //始点を設定
   $(cnvs).on('mousedown.st',function(e){
-    oldX = e.offsetX;
-    oldY = e.offsetY;
+    sX = e.offsetX;
+    sY = e.offsetY;
     can_mouse_event = true;
   });
 
-  //終点を設定/始点~終点までを線で結ぶ
+ //終点を設定/始点~終点までを線で結ぶ
   $(cnvs).on('mouseup.st',function(e){
     can_mouse_event = false;
-    pX = e.offsetX;
-    pY = e.offsetY;
+    gX = e.offsetX;
+    gY = e.offsetY;
     ctx.strokeStyle = color;
     ctx.lineWidth = 3;
     ctx.lineJoin  = "round";
     ctx.lineCap   = "round";
     ctx.beginPath();
-    ctx.moveTo(oldX,oldY);
-    ctx.lineTo(pX,pY);
+    ctx.moveTo(sX,sY);
+    ctx.lineTo(gX,gY);
     ctx.stroke();
 
     $(cnvs).off('mousedown.st');
     $(cnvs).off('mouseup.st');
     $(cnvs).off('mouseout.st');
 
-    //描画に戻す
+  //描画に戻す
     cnvColor = rgba_code; //線の色
     cnvBold = 3;  // 線の太さ
   });
@@ -277,3 +279,64 @@ function st_tool(){
   });
 }
 //直線ツールここまで
+
+
+//波線ツールここから
+let w_sX = null;  //始点
+let w_sY = null;  //始点
+let w_gX = null;  //終点
+let w_gY = null;  //終点
+let w_can_mouse_event = false;
+var distance; //座標の距離を格納
+var img = new Image();  //画像
+img.src = './Picture/li14.png';  //画像
+
+document.getElementById("wave").onclick = function(){
+  wv_tool();
+}
+
+function wv_tool(){
+//クリックした際描画されないようペンを透明に
+  cnvColor = "255, 255, 255, 0";
+//始点を設定
+  $(cnvs).on('mousedown.wv',function(e){
+    w_sX = e.offsetX;
+    w_sY = e.offsetY;
+    can_mouse_event = true;
+  });
+
+ //終点を設定/始点~終点までを線で結ぶ
+  $(cnvs).on('mouseup.wv',function(e){
+    can_mouse_event = false;
+    w_gX = e.offsetX;
+    w_gY = e.offsetY;
+
+    w_distance();
+
+    //波線の画像を挿入
+    ctx.drawImage(img,w_sX,w_sY,distance,22);
+
+    $(cnvs).off('mousedown.wv');
+    $(cnvs).off('mouseup.wv');
+    $(cnvs).off('mouseout.wv');
+
+  //描画に戻す
+    cnvColor = rgba_code; //線の色
+    cnvBold = 3;  // 線の太さ
+  });
+
+  //座標間の距離
+  function w_distance(){
+    // x座標のみの差を求めて二乗する
+    var distanceX = (w_sX - w_gX)*(w_sX - w_gX);
+    // y座標も同じように処理
+    var distanceY = (w_sY - w_gY)*(w_sY - w_gY);
+    // 平方根を求める関数を使用して距離を出す
+    distance = Math.sqrt(distanceX + distanceY);
+  }
+  
+  $(cnvs).on('mouseout.wv',function(e){
+    w_can_mouse_event = false;
+  });
+}
+//波線ツールここまで
