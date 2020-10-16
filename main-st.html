@@ -1,0 +1,67 @@
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./CSS/blackboard.css">
+    <script src="md-color-picker.js"></script>
+    <title>黒板</title>
+</head>
+
+<body>
+<div class="dcanvas">
+    <canvas id="canvas" style="border: solid 2px #000;box-sizing: border-box;"></canvas>
+</div>
+    
+    <div id="tool" class="tool">
+        <div>
+            <label id="menu">メニュー</label>
+            <p id="menulist" class="menulist1">
+                <label id="exit" class="exit">退室</label><br>
+                <button id="m_close">閉じる</button>
+            </p>
+        </div>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script> 
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBpmypIXLxfFpHxcAWRnF2vQB_ONU6OISA",
+            authDomain: "project2020-93dda.firebaseapp.com",
+            databaseURL: "https://project2020-93dda.firebaseio.com",
+            projectId: "project2020-93dda",
+            storageBucket: "project2020-93dda.appspot.com",
+            messagingSenderId: "453159572734",
+            appId: "1:453159572734:web:e3f6b15cb3bb4b1b9401af"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+    </script>
+
+    <div id="chat" class="chat">
+        <textarea id="message" row="10" value="" ></textarea><button id="btn">送信</button>
+    </div>
+
+    <div id="disp">
+    <table id="tdisp" class="tdisp">
+        <script src="chatdisp.js"></script>
+    </table>
+    </div>
+
+    <script src="chat.js"></script>
+    <div id="imag" lass="imag">
+        <img id="imgSample" src="./Picture/back.jpg" class="imgSample">
+    </div>
+        <script src="dispfile.js"></script>
+
+</body>
+</html>
