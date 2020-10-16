@@ -65,8 +65,7 @@ $('#canvas').attr('height', h);
 
  // 描画クリア
  $("#clear").click(function(){
-   ctx.clearRect(0,0,cnvWidth,cnvHeight);
-   setBgColor();
+  ctx.clearRect(0,0,cnvWidth,cnvHeight);
  });
 
 

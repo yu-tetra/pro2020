@@ -8,9 +8,9 @@
 </head>
 
 <body>
-<div class="dcanvas">
-    <canvas id="canvas" style="border: solid 2px #000;box-sizing: border-box;"></canvas>
-</div>
+    <div class="dcanvas">
+        <canvas id="canvas" class="canvas" style="border: solid 2px #000;box-sizing: border-box;"></canvas>
+    </div>
     
     <div id="tool" class="tool">
         <div>
@@ -20,8 +20,7 @@
                 <button id="m_close">閉じる</button>
             </p>
         </div>
-
-        
+ 
         <label id="txt">文字入力</label>
         <div id="txtform" class="txtform1">
             <form>
@@ -45,6 +44,11 @@
          
         <img src="./Picture/school_kokubankeshi.png" title="黒板消し" class="eraser" id="eraser">
         <img src="./Picture/イラスト.png" title="全消し" class="clear" id="clear">
+        
+        <ul>
+            <li>レイヤー1</li>
+            <li>レイヤー2</li>
+        </ul>
     </div>
 
     <div id="result"><img src=""></div>
@@ -54,6 +58,7 @@
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
@@ -83,17 +88,16 @@
 
     <div id="disp">
     <table id="tdisp" class="tdisp">
-        <script src="chatdisp.js"></script>
+        <script src="test.js"></script>
     </table>
     </div>
 
     <script src="chat.js"></script>
-    <script src="dispfile.js"></script>
+
     <div id="imag" lass="imag">
-        <img id="imgSample" src="./Picture/back.jpg" class="imgSample">
+        <img id="imgSample" src="" class="imgSample">
         <input type="file" id="upimg" value="画像をアップロード">
     </div>
-        
         <script src="file.js"></script>
 
 </body>
