@@ -8,6 +8,10 @@ var mountainsRef = storageRef.child('mountains.jpg');
 // Create a reference to 'images/mountains.jpg'
 var mountainImagesRef = storageRef.child('images/mountains.jpg');
 
+//ref省略
+var setp = firebase.firestore().collection("rooms").doc("roomID");
+var disp = firebase.firestore().collection("rooms")
+
 // While the file names are the same, the references point to different files
 mountainsRef.name === mountainImagesRef.name            // true
 mountainsRef.fullPath === mountainImagesRef.fullPath    // false
@@ -19,18 +23,23 @@ objFile.addEventListener("change", function(evt) {
     var reader = new FileReader();
     reader.readAsDataURL(file[0]);
     reader.onload = function() {
-        dataUrl = reader.result;
+      dataUrl = reader.result;
     };
-    console.log(file);
+    //console.log(file);
     var image = file[0];
 
     var ref = firebase.storage().ref().child(image.name);
     ref.put(image).then(function(snapshot) {
-      alert('アップロードしました');
+    alert('アップロードしました。');
 
-      ref.getDownloadURL().then(function(url){
-      console.log(url);
-      document.getElementById('imgSample').src = url;
+    ref.getDownloadURL().then(function(url){
+      setp.set({
+        key:url,
+        pass:"pass"
+      })
+      //console.log(url);
+      //document.getElementById('imgSample').src = url;
     })
-    });
+  });
+
 }, false);

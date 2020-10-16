@@ -12,3 +12,7 @@ place.onSnapshot((snapshot)=> {
     document.getElementById("disp").scrollBy(0, 330);
  });
 
+
+//ドキュメントID取得
+//var log = firebase.firestore().collection('rooms').doc().id;
+//console.log(log);
