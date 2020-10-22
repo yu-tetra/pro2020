@@ -28,16 +28,21 @@ $('#canvas2').attr('height', h);
 
  var oldGCO = ctx.globalCompositeOperation;  //消しゴム
 
- // canvas上でのイベント
- $(cnvs).mousedown(function(){
-   clickFlg = 1; // マウス押下開始
- }).mouseup(function(){
-   clickFlg = 0; // マウス押下終了
- }).mousemove(function(e){
-   // マウス移動処理
-   if(!clickFlg) return false;
-   draw(e.offsetX, e.offsetY);
- });
+ canvasdraw();
+
+function canvasdraw(){
+   // canvas上でのイベント
+  $(cnvs).mousedown(function(){
+    clickFlg = 1; // マウス押下開始
+  }).mouseup(function(){
+    clickFlg = 0; // マウス押下終了
+  }).mousemove(function(e){
+    // マウス移動処理
+    if(!clickFlg) return false;
+    draw(e.offsetX, e.offsetY);
+  });
+}
+
 
  // 描画処理
  function draw(x, y) {
@@ -407,6 +412,7 @@ $("#la1").click(function(){
    cnvs = document.getElementById('canvas');
    ctx = cnvs.getContext('2d');
    console.log("レイヤー1");
+   canvasdraw();
 });
 
 $("#la2").click(function(){
@@ -421,4 +427,5 @@ $("#la2").click(function(){
   cnvs = document.getElementById('canvas2');
   ctx = cnvs.getContext('2d');
   console.log("レイヤー2");
+  canvasdraw();
 });
