@@ -56,12 +56,12 @@
             })
             .then(function(docRef) {
                 var roomid = docRef.id;
-                //console.log(roomid);
+                console.log(roomid);
                 var placen = db.collection("rooms").doc(roomid).collection("member");
                 placen.add({
                 name: name
                 });
-                document.cookie = test;
+                //document.cookie = test;
             });
             
             location.href="teacher_login.html";
