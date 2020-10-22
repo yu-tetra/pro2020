@@ -46,19 +46,24 @@
         firebase.initializeApp(firebaseConfig);
 
         var db = firebase.firestore();
-        var placen = db.collection("rooms").doc("roomID").collection("member");
         var placep = db.collection("rooms")
         
         $('#submit').on('click',function(){
             var name = $('#user').val();
             var pass = $('#pass').val();
-            placen.add({
-                user: name
-            });
             placep.add({
                 password: pass
             })
-            location.href="teacher_login.html";
+            .then(function(docRef) {
+                var roomid = docRef.id;
+                console.log(roomid);
+                var placen = db.collection("rooms").doc(roomid).collection("member");
+                placen.add({
+                name: name
+                });
+            });
+            
+            //location.href="teacher_login.html";
         })
     </script>
     
