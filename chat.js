@@ -5,9 +5,11 @@ var btn = document.getElementById("btn");
 var message = document.getElementById("message");
 //送信処理
 btn.addEventListener('click', ()=> {
-   var mas = escape(message.value);
+   //console.log(escape(message.value));
+   var chatm = message.value;
+   //console.log(chatm);
    place.add({
-      chat: mes,
+      chat: chatm,
       time: firebase.firestore.FieldValue.serverTimestamp()
    });
 });
