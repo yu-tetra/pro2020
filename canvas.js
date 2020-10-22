@@ -2,7 +2,7 @@
  var cnvs = document.getElementById('canvas');
  var ctx = cnvs.getContext('2d');
 
- // 変数宣言
+// 変数宣言
  var w = $('.dcanvas').width();
  console.log(w);
  var h = $('.dcanvas').height()
@@ -12,6 +12,8 @@
 
 $('#canvas').attr('width', w);
 $('#canvas').attr('height', h);
+$('#canvas2').attr('width', w);
+$('#canvas2').attr('height', h);
 
  var cnvColor = "255, 255, 255, 1";  // 線の色(赤、緑、青、透明度)初期値
  var cnvBold = 3;  // 線の太さ
@@ -24,8 +26,10 @@ $('#canvas').attr('height', h);
  var green = 255;   //カラーコード変換・波線の色変換用
  var blue = 255;   //カラーコード変換・波線の色変換用
 
+ var oldGCO = ctx.globalCompositeOperation;  //消しゴム
+
  // canvas上でのイベント
- $("#canvas").mousedown(function(){
+ $(cnvs).mousedown(function(){
    clickFlg = 1; // マウス押下開始
  }).mouseup(function(){
    clickFlg = 0; // マウス押下終了
@@ -53,31 +57,35 @@ $('#canvas').attr('height', h);
 
  //ペン
  $("#pen").click(function(){
+   ctx.globalCompositeOperation = oldGCO;
    cnvBold = 3;    //線の太さ
    cnvColor = rgba_code;  //線の色
  })
 
  //消しゴム
   $("#eraser").click(function(){
-   cnvBold = 20;    //線の太さ
-   cnvColor = "0, 70, 67, 1";  //線の色
+  ctx.globalCompositeOperation = 'destination-out';
+  cnvBold = 20;    //線の太さ
+  cnvColor = "0, 70, 67, 1";  //線の色
  })
 
  // 描画クリア
  $("#clear").click(function(){
+  ctx.globalCompositeOperation = oldGCO;
   ctx.clearRect(0,0,cnvWidth,cnvHeight);
  });
 
 
 //カラーピッカーここから
-/// 長押しを検知する閾値
+//長押しを検知する閾値
 var LONGPRESS = 500;
-/// 長押し実行タイマーのID
+//長押し実行タイマーのID
 var timerId;
  
 /// 長押し・ロングタップを検知する
 $('.pen').on("mousedown touchstart",function(){
   timerId = setTimeout(function(){
+    ctx.globalCompositeOperation = oldGCO;
     /// 長押し時（Longpress）のコード
     showpallete();
   }, LONGPRESS);
@@ -238,6 +246,7 @@ let gY = null;  //終点
 let can_mouse_event = false;
 
 document.getElementById("straight").onclick = function(){
+  ctx.globalCompositeOperation = oldGCO;
   st_tool();
 }
 
@@ -292,6 +301,7 @@ var img = new Image();  //画像
 img.src = './Picture/li14.png';  //画像
 
 document.getElementById("wave").onclick = function(){
+  ctx.globalCompositeOperation = oldGCO;
   wv_tool();
 }
 
@@ -383,3 +393,32 @@ function wv_tool(){
   });
 }
 //波線ツールここまで
+
+//レイヤー
+$("#la1").click(function(){
+    $("#canvas").css({
+      'z-index': '1'
+    });
+
+    $("#canvas2").css({
+      'z-index': '0'
+    });
+
+   cnvs = document.getElementById('canvas');
+   ctx = cnvs.getContext('2d');
+   console.log("レイヤー1");
+});
+
+$("#la2").click(function(){
+  $("#canvas").css({
+    'z-index': '0'
+  });
+
+  $("#canvas2").css({
+    'z-index': '1'
+  });
+
+  cnvs = document.getElementById('canvas2');
+  ctx = cnvs.getContext('2d');
+  console.log("レイヤー2");
+});
