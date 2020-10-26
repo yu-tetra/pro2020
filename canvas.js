@@ -138,6 +138,9 @@ document.getElementById("c_close").onclick = function(){
 //メニューここから
 //メニュー（クリック）
 document.getElementById("menu").onclick = function(){
+  $("#menu").css({
+      'color': '#f9bc60'
+    });
   showmenu();
 };
 
@@ -146,8 +149,14 @@ function showmenu(){
   var menustatus = document.getElementById("menulist");
   if (menustatus.className == "menulist1"){
     menustatus.className = "menulist";
+      $("#menu").css({
+        'color': '#f9bc60'
+      });
   }else{
     menustatus.className = "menulist1";
+      $("#menu").css({
+        'color': '#fffffe'
+      });
   }
 }
 
@@ -166,7 +175,7 @@ document.getElementById("exit").onclick = function(){
   document.getElementById("m_close").onclick = function(){
     var wObjballoon2	= document.getElementById("menulist");
     wObjballoon2.className = "menulist1";
-    $("menu").css({
+    $("#menu").css({
       'color': '#fffffe'
     });
   };
@@ -180,20 +189,12 @@ var mouseY;
 
 //フォーム呼び出し
   document.getElementById("txt").onclick = function(){
-    //（あとでマウスカーソル形状変更を追加）
+    $("#txt").css({
+      'color': '#f9bc60'
+    });
     //処理をペンでの描画からテキストフォーム表示に切り替える・フォームの表示
     textform_positon();
   };
-
-  //テキスト入力フォーム表示・非表示
-  function showform(){
-    var formstatus = document.getElementById("txtform");
-    if (formstatus.className == "txtform1"){
-      formstatus.className = "txtform";
-    }else{
-      formstatus.className = "txtform1";
-    }
-  }
 
   //クリック位置にテキスト入力フォームを表示
   function textform_positon(){
@@ -212,7 +213,8 @@ var mouseY;
       txtform.style.top = mouseY;
 
       //表示
-      showform();
+      var formstatus = document.getElementById("txtform");
+      formstatus.className = "txtform";
     });
   }
 
@@ -222,6 +224,10 @@ var mouseY;
     wObjballoon3.className = "txtform1";
     //クリックした際にフォームを出さないようにする
     $(cnvs).off('click.text');
+
+    $("#txt").css({
+      'color': '#fffffe'
+    });
     //描画に戻す
     cnvColor = rgba_code; //線の色
     cnvBold = 3;  // 線の太さ
