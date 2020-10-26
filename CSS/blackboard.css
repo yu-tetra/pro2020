@@ -173,3 +173,13 @@ body{
     width: 18%;
     height: auto;
 }
+
+li {
+    list-style: none;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+#la1 {
+    color: #f9bc60;
+}

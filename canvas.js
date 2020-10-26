@@ -80,7 +80,7 @@ function canvasdraw(){
   ctx.clearRect(0,0,cnvWidth,cnvHeight);
  });
 
-
+ 
 //カラーピッカーここから
 //長押しを検知する閾値
 var LONGPRESS = 500;
@@ -166,6 +166,9 @@ document.getElementById("exit").onclick = function(){
   document.getElementById("m_close").onclick = function(){
     var wObjballoon2	= document.getElementById("menulist");
     wObjballoon2.className = "menulist1";
+    $("menu").css({
+      'color': '#fffffe'
+    });
   };
   //メニューここまで
 
@@ -405,8 +408,16 @@ $("#la1").click(function(){
       'z-index': '1'
     });
 
+    $("#la1").css({
+      'color': '#f9bc60'
+    });
+
     $("#canvas2").css({
       'z-index': '0'
+    });
+    
+    $("#la2").css({
+      'color': '#fffffe'
     });
 
    cnvs = document.getElementById('canvas');
@@ -420,8 +431,16 @@ $("#la2").click(function(){
     'z-index': '0'
   });
 
+  $("#la1").css({
+    'color': '#fffffe'
+  });
+
   $("#canvas2").css({
     'z-index': '1'
+  });
+
+  $("#la2").css({
+    'color': '#f9bc60'
   });
 
   cnvs = document.getElementById('canvas2');
