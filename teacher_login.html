@@ -10,10 +10,11 @@
     <h1>部屋を制作しました</h1>
 
     <p>
-        配布用URL→<label></label>
+        配布用URL→
+
+        <input id="copyTarget" type="text" value="" readonly><button onclick="copyToClipboard()" id="cb">URLをコピー</button>
         
         <br>
-
         （ctrlキーとCキーを同時に押してコピー）
     </p>
     <button class="btn btn-primary btn-lg" id="submit">入室</button>
@@ -29,7 +30,7 @@
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
     <script> 
-        // Your web app's Firebase configuration
+        // Your web appをs Firebase configuration
         var firebaseConfig = {
             apiKey: "AIzaSyBpmypIXLxfFpHxcAWRnF2vQB_ONU6OISA",
             authDomain: "project2020-93dda.firebaseapp.com",
@@ -45,6 +46,22 @@
         var db = firebase.database();
         var cookies = document.cookie;
         console.log(cookies);
+
+        document.getElementById( "copyTarget" ).value = "URL"+cookies;
+        
+        function copyToClipboard() {
+         // コピー対象をJavaScript上で変数として定義する
+            var copyTarget = document.getElementById("copyTarget");
+
+            // コピー対象のテキストを選択する
+            copyTarget.select();
+
+            // 選択しているテキストをクリップボードにコピーする
+            document.execCommand("Copy");
+
+            // コピーをお知らせする
+            alert("URLをコピーしました");
+        }
         
         $('#submit').on('click',function(){
             location.href="main.html";

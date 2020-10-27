@@ -22,12 +22,23 @@ form{
     height: 45px;
 }
 
-button{
+#submit{
     margin-left: 600px;
     font-size: 1.5em;
     padding: 8px 10px;
     background-color: #f9bc60;
 }
+
+#cb{
+    padding: 8px 10px;
+    background-color: #f9bc60;
+}
+
+#copyTarget{
+    height: 40px;
+    width: auto;
+}
+
 
 p{
     margin-left: 50px;
