@@ -81,6 +81,12 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
 
+        var cookies = document.cookie;
+    console.log(cookies);
+        var elem = cookies.split("=");
+    
+    console.log(elem[1]);
+
     </script>
 
     <div id="chat" class="chat">
