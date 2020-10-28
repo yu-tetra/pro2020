@@ -61,17 +61,29 @@ function canvasdraw(){
  };
 
  //ペン
+ var p_flg = 0; //ペン使用フラグ(0:未使用 1:使用)
  $("#pen").click(function(){
    ctx.globalCompositeOperation = oldGCO;
    cnvBold = 3;    //線の太さ
    cnvColor = rgba_code;  //線の色
+   p_flg = 1;
+
+   $("#pen").css({
+    'background-color': '#f9bc60'
+  });
  })
 
  //消しゴム
+ var e_flg = 0; //消しゴム使用フラグ(0:未使用 1:使用)
   $("#eraser").click(function(){
   ctx.globalCompositeOperation = 'destination-out';
-  cnvBold = 20;    //線の太さ
+  cnvBold = 30;    //線の太さ
   cnvColor = "0, 70, 67, 1";  //線の色
+  e_flg = 1;
+
+  $("#eraser").css({
+    'background-color': '#f9bc60'
+  });
  })
 
  // 描画クリア
@@ -273,7 +285,6 @@ function st_tool(){
   var flg = 1;
   $(document).on('click',function(e){
     if(!$(e.target).closest(cnvs).length &&  !$(e.target).closest('#straight').length){
-      console.log('stop');
       flg = 0;
 
       //描画に戻す
@@ -355,7 +366,6 @@ function wv_tool(){
  var flg = 1;
  $(document).on('click',function(e){
    if(!$(e.target).closest(cnvs).length &&  !$(e.target).closest('#wave').length){
-     console.log('stop');
      flg = 0;
      $("#wave").css({
        'color': '#fffffe'
@@ -507,3 +517,24 @@ $("#la2").click(function(){
   canvasdraw();
 });
 //レイヤーここまで
+
+//ペン・消しゴム背景色
+$(document).on('click',function(e){
+  if(!$(e.target).closest(cnvs).length &&  !$(e.target).closest('#pen').length
+  && p_flg == 1){
+    p_flg = 0;
+    $("#pen").css({
+      'background-color': 'transparent'
+    });
+  }
+});
+
+$(document).on('click',function(e){
+  if(!$(e.target).closest(cnvs).length &&  !$(e.target).closest('#eraser').length
+  && e_flg == 1){
+    e_flg = 0;
+    $("#eraser").css({
+      'background-color': 'transparent'
+    });
+  }
+});
