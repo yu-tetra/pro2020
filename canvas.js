@@ -287,9 +287,12 @@ function st_tool(){
     if(!$(e.target).closest(cnvs).length &&  !$(e.target).closest('#straight').length){
       flg = 0;
 
+      //「波線を引く」以外がクリックされたときは描画色を戻す
+      if(!$(e.target).closest('#wave').length){
       //描画に戻す
       cnvColor = rgba_code; //線の色
       cnvBold = 3;  // 線の太さ
+      }
 
       $("#straight").css({
         'color': '#fffffe'
