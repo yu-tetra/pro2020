@@ -179,7 +179,7 @@ document.getElementById("exit").onclick = function(){
       'color': '#fffffe'
     });
   };
-  //メニューここまで
+//メニューここまで
 
 
 //テキストツールここから
@@ -260,13 +260,35 @@ let gY = null;  //終点
 let can_mouse_event = false;
 
 document.getElementById("straight").onclick = function(){
+  $("#straight").css({
+    'color': '#f9bc60'
+  });
   ctx.globalCompositeOperation = oldGCO;
   st_tool();
 }
 
 function st_tool(){
+
+ //キャンパス・ツール以外がクリックされたら線を引かないようにする
+  var flg = 1;
+  $(document).on('click',function(e){
+    if(!$(e.target).closest(cnvs).length &&  !$(e.target).closest('#straight').length){
+      console.log('stop');
+      flg = 0;
+
+      //描画に戻す
+      cnvColor = rgba_code; //線の色
+      cnvBold = 3;  // 線の太さ
+
+      $("#straight").css({
+        'color': '#fffffe'
+      });
+    }
+  });
+
 //クリックした際描画されないようペンを透明に
   cnvColor = "255, 255, 255, 0";
+
 //始点を設定
   $(cnvs).on('mousedown.st',function(e){
     sX = e.offsetX;
@@ -276,25 +298,31 @@ function st_tool(){
 
  //終点を設定/始点~終点までを線で結ぶ
   $(cnvs).on('mouseup.st',function(e){
-    can_mouse_event = false;
-    gX = e.offsetX;
-    gY = e.offsetY;
-    ctx.strokeStyle = color;
-    ctx.lineWidth = 3;
-    ctx.lineJoin  = "round";
-    ctx.lineCap   = "round";
-    ctx.beginPath();
-    ctx.moveTo(sX,sY);
-    ctx.lineTo(gX,gY);
-    ctx.stroke();
-
+    if(flg == 1){
+      can_mouse_event = false;
+      gX = e.offsetX;
+      gY = e.offsetY;
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 3;
+      ctx.lineJoin  = "round";
+      ctx.lineCap   = "round";
+      ctx.beginPath();
+      ctx.moveTo(sX,sY);
+      ctx.lineTo(gX,gY);
+      ctx.stroke();
+    }
     $(cnvs).off('mousedown.st');
     $(cnvs).off('mouseup.st');
     $(cnvs).off('mouseout.st');
+    flg = 0;
 
   //描画に戻す
     cnvColor = rgba_code; //線の色
     cnvBold = 3;  // 線の太さ
+
+    $("#straight").css({
+      'color': '#fffffe'
+    });
   });
   
   $(cnvs).on('mouseout.st',function(e){
@@ -312,14 +340,29 @@ let w_gY = null;  //終点
 let w_can_mouse_event = false;
 var distance; //座標の距離を格納
 var img = new Image();  //画像
-img.src = './Picture/li14.png';  //画像
+img.src = './Picture/波線1.png';  //画像
 
 document.getElementById("wave").onclick = function(){
+  $("#wave").css({
+    'color': '#f9bc60'
+  });
   ctx.globalCompositeOperation = oldGCO;
   wv_tool();
 }
 
 function wv_tool(){
+ //キャンパス・ツール以外がクリックされたら線を引かないようにする
+ var flg = 1;
+ $(document).on('click',function(e){
+   if(!$(e.target).closest(cnvs).length &&  !$(e.target).closest('#wave').length){
+     console.log('stop');
+     flg = 0;
+     $("#wave").css({
+       'color': '#fffffe'
+     });
+   }
+ });
+
 //クリックした際描画されないようペンを透明に
   cnvColor = "255, 255, 255, 0";
 //始点を設定
@@ -331,6 +374,8 @@ function wv_tool(){
 
  //終点を設定/始点~終点までを線で結ぶ
   $(cnvs).on('mouseup.wv',function(e){
+    
+    if(flg == 1){
     can_mouse_event = false;
     w_gX = e.offsetX;
     w_gY = e.offsetY;
@@ -340,10 +385,16 @@ function wv_tool(){
     //波線の画像を挿入
     ctx.drawImage(img,w_sX,w_sY,distance,22);
     w_color();
+    }
 
     $(cnvs).off('mousedown.wv');
     $(cnvs).off('mouseup.wv');
     $(cnvs).off('mouseout.wv');
+    flg = 0;
+
+    $("#wave").css({
+      'color': '#fffffe'
+    });
 
   //描画に戻す
     cnvColor = rgba_code; //線の色
@@ -362,12 +413,12 @@ function wv_tool(){
 
   //色変更
   function w_color(){
-    var imageData = ctx.getImageData(w_sX,w_sY,distance,22);
+    var imageData = ctx.getImageData(w_sX,w_sY,distance,86);
     var data = imageData.data;
 
     // 変更したい色の範囲
-    const minColor = { r: 255, g: 29, b: 29 };
-    const maxColor = { r: 255, g: 41, b: 41 };
+    const minColor = { r: 255, g: 255, b: 255 };
+    const maxColor = { r: 255, g: 255, b: 255 };
 
     // ここに現在のピクセル情報を入れていく
     var currentColor = {};
@@ -407,6 +458,7 @@ function wv_tool(){
   });
 }
 //波線ツールここまで
+
 
 //レイヤー
 $("#la1").click(function(){
@@ -454,3 +506,4 @@ $("#la2").click(function(){
   console.log("レイヤー2");
   canvasdraw();
 });
+//レイヤーここまで
