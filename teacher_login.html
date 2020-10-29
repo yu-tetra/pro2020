@@ -24,7 +24,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -43,22 +43,28 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
 
-        var db = firebase.database();
+        var db = firebase.firestore();
         var cookies = document.cookie;
-        console.log(cookies);
+        var cookieItem = cookies.split(";");
+        var elem = cookieItem[0].split("=");
+        var elem1 = cookieItem[1].split("=");
+        var id = "def";
 
-        document.getElementById( "copyTarget" ).value = "https://project2020-93dda.web.app/main-st.html?"+cookies;
-        
+        if(elem[0] == "id"){
+        id = "id="+elem[1];
+        }else{
+        id = "id="+elem1[1];
+        }
+
+        document.getElementById( "copyTarget" ).value = "https://project2020-93dda.web.app/student.html?"+id;
+
         function copyToClipboard() {
          // コピー対象をJavaScript上で変数として定義する
             var copyTarget = document.getElementById("copyTarget");
-
             // コピー対象のテキストを選択する
             copyTarget.select();
-
             // 選択しているテキストをクリップボードにコピーする
             document.execCommand("Copy");
-
             // コピーをお知らせする
             alert("URLをコピーしました");
         }

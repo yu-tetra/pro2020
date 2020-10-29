@@ -1,6 +1,20 @@
 var db = firebase.firestore();
+var cookies = document.cookie;
+var cookieItem = cookies.split(";");
+var elem = cookieItem[0].split("=");
+var elem1 = cookieItem[1].split("=");
+var id = "def";
+var name = "user";
 
-var place = db.collection("rooms").doc("roomID").collection("chatroom").orderBy("time");
+if(elem[0] == "id"){
+   id = elem[1];
+   name = elem1[1];
+}else{
+   id = elem1[1];
+   name = elem[1];
+}
+
+var place = db.collection("rooms").doc(id).collection("chatroom").orderBy("time");
 
 place.onSnapshot((snapshot)=> {
     snapshot.docChanges().forEach((change) => {
@@ -11,8 +25,3 @@ place.onSnapshot((snapshot)=> {
     });
     document.getElementById("disp").scrollBy(0, 330);
  });
-
-
-//ドキュメントID取得
-//var log = firebase.firestore().collection('rooms').doc().id;
-//console.log(log);

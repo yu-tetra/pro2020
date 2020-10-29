@@ -26,7 +26,7 @@
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -44,17 +44,39 @@
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
-
-        var db = firebase.database();
-        
+        var id = "id";
+       
         $('#submit').on('click',function(){
-            var name = $('#name').val();
-            var pass = $('#pass').val();
             var url = $('#url').val();
-            console.log(name);
-            let member = "member";
-            //ref入れる
-            location.href= "main.html";
+            var elem = url.split("=");
+            id = elem[1];
+            console.log(id);
+
+            var place = firebase.firestore().collection("rooms").doc(id);
+            var placen = firebase.firestore().collection("rooms").doc(id).collection("name");
+            var passd = "0";
+
+            place.get().then(function(doc) {
+                passd = doc.data().password;
+                console.log(passd);
+                var pass = $('#pass').val();
+                console.log(pass);
+
+                if(pass == passd){
+                    var name = $('#name').val();
+                    var roomid = id;
+                    //console.log(name);
+                    placen.add({
+                        name: name
+                    });
+                    document.cookie = "id="+encodeURIComponent(roomid);
+                    document.cookie = "name="+name;
+                    location.href= "main-st.html";
+                }else{
+                    console.log(passd);
+                    alert("パスワードが違います。");
+                }
+            });
         })
     </script>
 

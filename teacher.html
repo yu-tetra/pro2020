@@ -61,7 +61,8 @@
                 placen.add({
                 name: name
                 });
-                document.cookie = "id="+roomid;
+                document.cookie = "id="+encodeURIComponent(roomid);
+                document.cookie = "name="+name;
                 location.href="teacher_login.html";
             }); 
         })

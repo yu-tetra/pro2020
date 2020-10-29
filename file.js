@@ -1,4 +1,16 @@
-// Create a root reference
+var db = firebase.firestore();
+var cookies = document.cookie;
+var cookieItem = cookies.split(";");
+var elem = cookieItem[0].split("=");
+var elem1 = cookieItem[1].split("=");
+var id = "def";
+
+if(elem[0] == "id"){
+  id = elem[1];
+}else{
+  id = elem1[1];
+}
+
 var storage = firebase.storage();
 var storageRef = firebase.storage().ref();
 
@@ -9,7 +21,7 @@ var mountainsRef = storageRef.child('mountains.jpg');
 var mountainImagesRef = storageRef.child('images/mountains.jpg');
 
 //ref省略
-var setp = firebase.firestore().collection("rooms").doc("roomID");
+var setp = firebase.firestore().collection("rooms").doc(id);
 var disp = firebase.firestore().collection("rooms")
 
 // While the file names are the same, the references point to different files
@@ -18,6 +30,7 @@ mountainsRef.fullPath === mountainImagesRef.fullPath    // false
 
 var dataUrl;
 var objFile = document.getElementById("upimg");
+
 objFile.addEventListener("change", function(evt) {
     var file = evt.target.files;
     var reader = new FileReader();
@@ -33,9 +46,8 @@ objFile.addEventListener("change", function(evt) {
     alert('アップロードしました。');
 
     ref.getDownloadURL().then(function(url){
-      setp.set({
+      setp.update({
         key:url,
-        pass:"pass"
       })
       //console.log(url);
       //document.getElementById('imgSample').src = url;
