@@ -53,7 +53,7 @@
             console.log(id);
 
             var place = firebase.firestore().collection("rooms").doc(id);
-            var placen = firebase.firestore().collection("rooms").doc(id).collection("name");
+            var placen = firebase.firestore().collection("rooms").doc(id).collection("member");
             var passd = "0";
 
             place.get().then(function(doc) {
