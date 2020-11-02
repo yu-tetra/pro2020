@@ -4,9 +4,9 @@
 
 // 変数宣言
  var w = $('.dcanvas').width();
- console.log(w);
+ //console.log(w);
  var h = $('.dcanvas').height()
- console.log(h);
+ //console.log(h);
  const cnvWidth = w;
  const cnvHeight = h;
 

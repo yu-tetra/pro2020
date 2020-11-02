@@ -26,7 +26,7 @@
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-firestore.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -50,17 +50,17 @@
             var url = $('#url').val();
             var elem = url.split("=");
             id = elem[1];
-            console.log(id);
+            //console.log(id);
 
             var place = firebase.firestore().collection("rooms").doc(id);
-            var placen = firebase.firestore().collection("rooms").doc(id).collection("name");
+            var placen = firebase.firestore().collection("rooms").doc(id).collection("member");
             var passd = "0";
 
             place.get().then(function(doc) {
                 passd = doc.data().password;
-                console.log(passd);
+                //console.log(passd);
                 var pass = $('#pass').val();
-                console.log(pass);
+                //console.log(pass);
 
                 if(pass == passd){
                     var name = $('#name').val();
