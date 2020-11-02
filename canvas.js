@@ -493,7 +493,6 @@ $("#la1").click(function(){
 
    cnvs = document.getElementById('canvas');
    ctx = cnvs.getContext('2d');
-   console.log("レイヤー1");
    canvasdraw();
 });
 
@@ -516,7 +515,6 @@ $("#la2").click(function(){
 
   cnvs = document.getElementById('canvas2');
   ctx = cnvs.getContext('2d');
-  console.log("レイヤー2");
   canvasdraw();
 });
 //レイヤーここまで
@@ -541,3 +539,63 @@ $(document).on('click',function(e){
     });
   }
 });
+
+
+//画像の貼り付け（ドラッグアンドドロップ）
+//レイヤー2
+var target2 = null;
+document.addEventListener('DOMContentLoaded',function(){
+  var imgSample = document.getElementById('imgSample');
+  var cnvs2 = document.getElementById('canvas2');
+  var ctx2 = cnvs2.getContext('2d');
+
+  imgSample.addEventListener('dragstart',function(e){
+    target2 = e.target;
+  },false);
+
+  cnvs2.addEventListener('dragover',function(e){
+    e.preventDefault();
+  },false);
+
+  cnvs2.addEventListener('drop',function(e){
+    e.preventDefault();
+    var x = e.offsetX;
+    var y = e.offsetY;
+
+    //画像を貼る
+    ctx2.drawImage(imgSample,x,y,imgSample.width,imgSample.height);
+  });
+});
+//画像の貼り付け（ドラッグアンドドロップ）ここまで
+
+
+//canvasを画像に変換
+/* function save1(){
+  var cnvs1 = document.getElementById('canvas');
+  var src1 = cnvs1.toDataURL();
+  var img1 = new Image();
+  img1.src = src1;
+  console.log(img1);
+}
+
+function save2(){
+  var cnvs2 = document.getElementById('canvas2');
+  var src2 = cnvs2.toDataURL();
+  var img2 = new Image();
+  img2.src = src2;
+  console.log(img2);
+}
+*/
+
+function save(){
+  html2canvas(document.querySelector(".dcanvas")).then(canvas => {
+    //ここにcanvas変換後の処理を記述する
+    var imgcanvas = document.createElement("a");
+    imgcanvas.href = canvas.toDataURL("image/png");
+    var cimg = imgcanvas.href;
+
+    console.log(cimg);
+    });
+};
+
+setInterval(save,5000);
