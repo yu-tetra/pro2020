@@ -590,7 +590,8 @@ function save2(){
 function save(){
   html2canvas(document.querySelector(".dcanvas")).then(canvas => {
     //ここにcanvas変換後の処理を記述する
-    var imgcanvas = document.createElement("a");
+    var imgcanvas = new Image();
+    imgcanvas.crossOrigin = "anonymous";
     imgcanvas.href = canvas.toDataURL("image/png");
     var cimg = imgcanvas.href;
 
