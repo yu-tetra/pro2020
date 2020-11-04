@@ -602,6 +602,7 @@ id = elem1[1];
 
 var iref = db.collection("rooms").doc(id).collection("canvas");
 
+//canvasを画像に変換
 function save(){
   html2canvas(document.querySelector(".dcanvas")).then(canvas => {
     //ここにcanvas変換後の処理を記述する

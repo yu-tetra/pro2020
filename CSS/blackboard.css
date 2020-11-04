@@ -24,10 +24,17 @@ body{
 
 #canvas{
     z-index: 1;
+    background-color: rgba(0,70,67,0);
 }
 
 #canvas2{
     z-index: 0;
+    background-color:  rgba(0,70,67,0);
+}
+
+#canvas3{
+    z-index: -1;
+    background-color:  #004643;
 }
 
 #menu{
