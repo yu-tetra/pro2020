@@ -8,7 +8,37 @@
     <title>黒板</title>
 </head>
 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script> 
+       
+        var cookies = document.cookie;
+        var elem = cookies.split(";");
+
+    </script>
 <body>
+    <script> // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBpmypIXLxfFpHxcAWRnF2vQB_ONU6OISA",
+            authDomain: "project2020-93dda.firebaseapp.com",
+            databaseURL: "https://project2020-93dda.firebaseio.com",
+            projectId: "project2020-93dda",
+            storageBucket: "project2020-93dda.appspot.com",
+            messagingSenderId: "453159572734",
+            appId: "1:453159572734:web:e3f6b15cb3bb4b1b9401af"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
     <div class="dcanvas">
         <canvas id="canvas" class="dcanvas" style="border: solid 2px #000;box-sizing: border-box;"></canvas>
         <canvas id="canvas2" class="dcanvas" style="border: solid 2px #000;box-sizing: border-box;"></canvas>
@@ -57,36 +87,6 @@
    
     <script src="canvas.js"></script>
    
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
-
-    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-    https://firebase.google.com/docs/web/setup#available-libraries -->
-
-    <script> 
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyBpmypIXLxfFpHxcAWRnF2vQB_ONU6OISA",
-            authDomain: "project2020-93dda.firebaseapp.com",
-            databaseURL: "https://project2020-93dda.firebaseio.com",
-            projectId: "project2020-93dda",
-            storageBucket: "project2020-93dda.appspot.com",
-            messagingSenderId: "453159572734",
-            appId: "1:453159572734:web:e3f6b15cb3bb4b1b9401af"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-
-        var cookies = document.cookie;
-        var elem = cookies.split(";");
-
-    </script>
-
     <div id="chat" class="chat">
         <textarea id="message" row="10" value="" ></textarea><button id="btn">送信</button>
     </div>

@@ -7,21 +7,6 @@
     <title>黒板</title>
 </head>
 
-<body>
-<div class="dcanvas">
-    <canvas id="canvas" style="border: solid 2px #000;box-sizing: border-box;"></canvas>
-</div>
-    
-    <div id="tool" class="tool">
-        <div>
-            <label id="menu">メニュー</label>
-            <p id="menulist" class="menulist1">
-                <label id="exit" class="exit">退室</label><br>
-                <button id="m_close">閉じる</button>
-            </p>
-        </div>
-    </div>
-
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
@@ -33,6 +18,14 @@
 
     <script> 
         // Your web app's Firebase configuration
+        var cookies = document.cookie;
+        //console.log(cookies);
+    </script>
+<body>
+
+<div>
+    <img src="" id="canvas" class="dcanvas">
+    <script>
         var firebaseConfig = {
             apiKey: "AIzaSyBpmypIXLxfFpHxcAWRnF2vQB_ONU6OISA",
             authDomain: "project2020-93dda.firebaseapp.com",
@@ -42,11 +35,44 @@
             messagingSenderId: "453159572734",
             appId: "1:453159572734:web:e3f6b15cb3bb4b1b9401af"
         };
-        // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
+
+        var db = firebase.firestore();
         var cookies = document.cookie;
-        //console.log(cookies);
+        var cookieItem = cookies.split(";");
+        var elem = cookieItem[0].split("=");
+        var elem1 = cookieItem[1].split("=");
+        var id = "def";
+
+        if(elem[0] == "id"){
+        id = elem[1];
+        }else{
+        id = elem1[1];
+        }
+
+        var ref= firebase.firestore().collection("rooms").doc(id).collection("canvas").orderBy("time");
+
+        ref.onSnapshot((snapshot)=> {
+            snapshot.docChanges().forEach((change) => {
+                if(change.type === "added"){
+            // doc.data() is never undefined for query doc snapshots
+                    document.getElementById('canvas').src = change.doc.data().canvas;
+                }
+            });
+        });
     </script>
+
+</div>
+    
+    <div id="tool" class="tool">
+        <div>
+            <label id="menu">メニュー</label>
+            <p id="menulist" class="menulist1">
+                <label id="exit" class="exit">退室</label><br>
+                <button id="m_close">閉じる</button>
+            </p>
+        </div>
+    </div>
 
     <div id="chat" class="chat">
         <textarea id="message" row="10" value="" ></textarea><button id="btn">送信</button>
