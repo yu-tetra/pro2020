@@ -620,6 +620,8 @@ id = elem1[1];
 }
 
 var iref = db.collection("rooms").doc(id).collection("canvas");
+var size = 0;
+var delref = 0;
 
 //canvasを画像に変換して保存（各処理の終了後に呼び出している）
 function save(){
@@ -630,13 +632,30 @@ function save(){
     imgcanvas.href = canvas.toDataURL("image/png");
     var cimg = imgcanvas.href;
 
-    console.log(cimg);
+    //console.log(cimg);
 
-    iref.add({
-      canvas: cimg,
-      time: firebase.firestore.FieldValue.serverTimestamp()
-   });
-    });
+      iref.add({
+        canvas: cimg,
+        time: firebase.firestore.FieldValue.serverTimestamp()
+      });
+    
+      iref.get().then(function(query) {
+        size = query.size // will return the collection size
+        console.log(size);
+        query.forEach((doc) => {
+          dalref = doc.data();
+          //console.log(dalref);
+        });
+     });
+
+     if(size > 20){
+      var del = delref.orderBy("time").limit(1);
+      console.log(del);
+      /*iref().update({
+        capital: firebase.firestore.FieldValue.delete()
+      });*/
+     };
+  });
 };
 //setInterval(save,2000);
 //canvasを画像に変換ここまで
