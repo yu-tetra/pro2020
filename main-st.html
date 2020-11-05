@@ -3,7 +3,6 @@
     <meta charset="UTF-8">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link rel="stylesheet" href="./CSS/blackboard.css">
-    <script src="md-color-picker.js"></script>
     <title>黒板</title>
 </head>
 
@@ -90,5 +89,17 @@
     </div>
         <script src="dispfile.js"></script>
 
+
+<script>
+    document.getElementById("exit").onclick = function(){
+    var exitresult = confirm("部屋を退出しますか？");
+
+    if(exitresult){
+        location.href= "exit.html";
+    }else{
+        return;
+    }
+}
+</script>
 </body>
 </html>

@@ -189,6 +189,7 @@ document.getElementById("exit").onclick = function(){
     return;
   }
 }
+//退出処理ここまで
 
 //メニューの閉じボタン
   document.getElementById("m_close").onclick = function(){
@@ -213,6 +214,7 @@ var mouseY;
     });
     //処理をペンでの描画からテキストフォーム表示に切り替える・フォームの表示
     textform_positon();
+    console.log(p_flg);
   };
 
   //クリック位置にテキスト入力フォームを表示
@@ -247,9 +249,14 @@ var mouseY;
     $("#txt").css({
       'color': '#fffffe'
     });
+
     //描画に戻す
+    p_flg = 1;
     cnvColor = rgba_code; //線の色
     cnvBold = 3;  // 線の太さ
+    $("#pen").css({
+      'background-color': '#f9bc60'
+    });
   };
 
   //入力された文字列の受け取り
@@ -292,7 +299,7 @@ function st_tool(){
  //キャンパス・ツール以外がクリックされたら線を引かないようにする
   var flg = 1;
   $(document).on('click',function(e){
-    if(!$(e.target).closest(cnvs).length &&  !$(e.target).closest('#straight').length){
+    if(!$(e.target).closest(cnvs).length && !$(e.target).closest('#straight').length){
       flg = 0;
 
       //「波線を引く」以外がクリックされたときは描画色を戻す
@@ -342,6 +349,10 @@ function st_tool(){
   //描画に戻す
     cnvColor = rgba_code; //線の色
     cnvBold = 3;  // 線の太さ
+    p_flg = 1; //ペン使用フラグ(0:未使用 1:使用)
+    $("#pen").css({
+     'background-color': '#f9bc60'
+   });
 
     $("#straight").css({
       'color': '#fffffe'
@@ -421,6 +432,10 @@ function wv_tool(){
   //描画に戻す
     cnvColor = rgba_code; //線の色
     cnvBold = 3;  // 線の太さ
+    p_flg = 1; //ペン使用フラグ(0:未使用 1:使用)
+    $("#pen").css({
+     'background-color': '#f9bc60'
+   });
   });
 
   //座標間の距離
@@ -529,10 +544,11 @@ $("#la2").click(function(){
 });
 //レイヤーここまで
 
+
 //ペン・消しゴム背景色
 $(document).on('click',function(e){
   if(!$(e.target).closest(cnvs).length &&  !$(e.target).closest('#pen').length
-  && p_flg == 1){
+  &&  !$(e.target).closest("#clear").length && p_flg == 1){
     p_flg = 0;
     $("#pen").css({
       'background-color': 'transparent'
@@ -542,7 +558,7 @@ $(document).on('click',function(e){
 
 $(document).on('click',function(e){
   if(!$(e.target).closest(cnvs).length &&  !$(e.target).closest('#eraser').length
-  && e_flg == 1){
+  &&  !$(e.target).closest("#clear").length　&& e_flg == 1){
     e_flg = 0;
     $("#eraser").css({
       'background-color': 'transparent'
@@ -550,6 +566,7 @@ $(document).on('click',function(e){
   }
 });
 //ペン・消しゴム背景色ここまで
+
 
 //画像の貼り付け（ドラッグアンドドロップ）
 //レイヤー1
@@ -636,7 +653,7 @@ function save(){
       canvas: cimg,
       time: firebase.firestore.FieldValue.serverTimestamp()
    });
-    });
+  });
 };
 //setInterval(save,2000);
 //canvasを画像に変換ここまで
