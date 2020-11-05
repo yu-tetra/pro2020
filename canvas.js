@@ -36,6 +36,7 @@ function canvasdraw(){
     clickFlg = 1; // マウス押下開始
   }).mouseup(function(){
     clickFlg = 0; // マウス押下終了
+    save();
   }).mousemove(function(e){
     // マウス移動処理
     if(!clickFlg) return false;
@@ -61,7 +62,12 @@ function canvasdraw(){
  };
 
  //ペン
- var p_flg = 0; //ペン使用フラグ(0:未使用 1:使用)
+ //初期状態
+ var p_flg = 1; //ペン使用フラグ(0:未使用 1:使用)
+ $("#pen").css({
+  'background-color': '#f9bc60'
+});
+
  $("#pen").click(function(){
    ctx.globalCompositeOperation = oldGCO;
    cnvBold = 3;    //線の太さ
@@ -90,6 +96,7 @@ function canvasdraw(){
  $("#clear").click(function(){
   ctx.globalCompositeOperation = oldGCO;
   ctx.clearRect(0,0,cnvWidth,cnvHeight);
+  save();
  });
 
  
@@ -260,6 +267,7 @@ var mouseY;
     //文字描画位置の指定・文字描画
     ctx.textAlign = 'left'; 
     ctx.fillText(text,mouseX,mouseY);
+    save();
 }
 //テキストツールここまで
 
@@ -324,6 +332,7 @@ function st_tool(){
       ctx.moveTo(sX,sY);
       ctx.lineTo(gX,gY);
       ctx.stroke();
+      save();
     }
     $(cnvs).off('mousedown.st');
     $(cnvs).off('mouseup.st');
@@ -455,6 +464,7 @@ function wv_tool(){
 
     // canvasに変更済みのImageDataオブジェクトを描画する
     ctx.putImageData(imageData,w_sX,w_sY);
+    save();
   }
 
   // 色の判定用の関数（引数：現在のピクセルのrgb、指定色の最小値、指定色の最大値）
@@ -539,9 +549,35 @@ $(document).on('click',function(e){
     });
   }
 });
-
+//ペン・消しゴム背景色ここまで
 
 //画像の貼り付け（ドラッグアンドドロップ）
+//レイヤー1
+var target1 = null;
+document.addEventListener('DOMContentLoaded',function(){
+  var imgSample = document.getElementById('imgSample');
+  var cnvs1 = document.getElementById('canvas');
+  var ctx1 = cnvs1.getContext('2d');
+
+  imgSample.addEventListener('dragstart',function(e){
+    target1 = e.target;
+  },false);
+
+  cnvs1.addEventListener('dragover',function(e){
+    e.preventDefault();
+  },false);
+
+  cnvs1.addEventListener('drop',function(e){
+    e.preventDefault();
+    var x = e.offsetX;
+    var y = e.offsetY;
+
+    //画像を貼る
+    ctx1.drawImage(imgSample,x,y,imgSample.width,imgSample.height);
+    save();
+  });
+});
+
 //レイヤー2
 var target2 = null;
 document.addEventListener('DOMContentLoaded',function(){
@@ -564,28 +600,11 @@ document.addEventListener('DOMContentLoaded',function(){
 
     //画像を貼る
     ctx2.drawImage(imgSample,x,y,imgSample.width,imgSample.height);
+    save();
   });
 });
 //画像の貼り付け（ドラッグアンドドロップ）ここまで
 
-
-//canvasを画像に変換
-/* function save1(){
-  var cnvs1 = document.getElementById('canvas');
-  var src1 = cnvs1.toDataURL();
-  var img1 = new Image();
-  img1.src = src1;
-  console.log(img1);
-}
-
-function save2(){
-  var cnvs2 = document.getElementById('canvas2');
-  var src2 = cnvs2.toDataURL();
-  var img2 = new Image();
-  img2.src = src2;
-  console.log(img2);
-}
-*/
 
 var db = firebase.firestore();
 var cookies = document.cookie;
@@ -602,7 +621,7 @@ id = elem1[1];
 
 var iref = db.collection("rooms").doc(id).collection("canvas");
 
-//canvasを画像に変換
+//canvasを画像に変換して保存（各処理の終了後に呼び出している）
 function save(){
   html2canvas(document.querySelector(".dcanvas")).then(canvas => {
     //ここにcanvas変換後の処理を記述する
@@ -619,5 +638,5 @@ function save(){
    });
     });
 };
-
-setInterval(save,5000);
+//setInterval(save,2000);
+//canvasを画像に変換ここまで
