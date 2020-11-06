@@ -52,7 +52,18 @@
 
     ref.delete().then(function() {
         console.log("Document successfully deleted!");
-    })
+    });
+
+    const firebase_tools = require("firebase-tools");
+
+    // サブディレクトリを含めて一括削除
+    await firebase_tools.firestore.delete(ref, {
+      project: process.env.GCLOUD_PROJECT,
+      recursive: true,
+      yes: true,
+      token: functions.config().fb.token
+    });
+    
     </script>
     
 </body>
