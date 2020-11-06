@@ -667,16 +667,16 @@ function save() {
 
     //console.log("aaa1");
     if (size > 20) {
-      console.log("aaa2");
+      //console.log("aaa2");
       iref.orderBy('time')
         .get()
         .then((querySnapshot) => {
-          console.log(querySnapshot["docs"][0].id);
+          //console.log(querySnapshot["docs"][0].id);
           var did = querySnapshot["docs"][0].id
 
           var ref= firebase.firestore().collection("rooms").doc(id).collection("canvas").doc(did);
           ref.delete().then(function() {
-            console.log("Document successfully deleted!");
+            //console.log("Document successfully deleted!");
         })
         })
         /*iref().update({
