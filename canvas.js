@@ -17,6 +17,7 @@ $('#canvas2').attr('height', h);
 
  var cnvColor = "255, 255, 255, 1";  // 線の色(赤、緑、青、透明度)初期値
  var cnvBold = 3;  // 線の太さ
+ var e_cnvBold = 10;  // 線の太さ（消しゴム）
  var clickFlg = 0;  // クリック中の判定 1:クリック開始 2:クリック中
  var bgColor = "rgb(0,70,67)";
  var color = '#ffffff';   //カラーコード保持変数
@@ -47,7 +48,11 @@ function canvasdraw(){
 
  // 描画処理
  function draw(x, y) {
-   ctx.lineWidth = cnvBold;
+   if(p_flg == 1){
+    ctx.lineWidth = cnvBold;
+   }else{
+    ctx.lineWidth = e_cnvBold;
+   }
    ctx.strokeStyle = 'rgba('+cnvColor+')';
    // 初回処理の判定
    if (clickFlg == "1") {
@@ -73,24 +78,83 @@ function canvasdraw(){
    cnvBold = 3;    //線の太さ
    cnvColor = rgba_code;  //線の色
    p_flg = 1;
-
    $("#pen").css({
     'background-color': '#f9bc60'
   });
- })
+ });
+
+ //ペンの太さ（メニュー内）
+ $("#p_big").click(function(){
+   ctx.globalCompositeOperation = oldGCO;
+   cnvBold = 10;
+   cnvColor = rgba_code;
+   p_flg = 1;
+   $("#pen").css({
+    'background-color': '#f9bc60'
+  });
+ });
+
+ $("#p_mid").click(function(){
+  ctx.globalCompositeOperation = oldGCO;
+  cnvColor = rgba_code;
+  cnvBold = 3;
+  p_flg = 1;
+  $("#pen").css({
+   'background-color': '#f9bc60'
+ });
+});
+
+$("#p_sm").click(function(){
+  ctx.globalCompositeOperation = oldGCO;
+  cnvColor = rgba_code;
+  cnvBold = 1;
+  p_flg = 1;
+  $("#pen").css({
+   'background-color': '#f9bc60'
+ });
+});
+//ペンの太さここまで
 
  //消しゴム
  var e_flg = 0; //消しゴム使用フラグ(0:未使用 1:使用)
   $("#eraser").click(function(){
   ctx.globalCompositeOperation = 'destination-out';
-  cnvBold = 30;    //線の太さ
+  e_cnvBold = 30;    //線の太さ
   cnvColor = "0, 70, 67, 1";  //線の色
   e_flg = 1;
-
   $("#eraser").css({
     'background-color': '#f9bc60'
   });
  })
+
+  //消しゴムの太さ（メニュー内）
+  $("#e_big").click(function(){
+    ctx.globalCompositeOperation = 'destination-out';
+    e_cnvBold = 50;
+    e_flg = 1;
+    $("#eraser").css({
+      'background-color': '#f9bc60'
+    });
+  });
+
+  $("#e_mid").click(function(){
+    ctx.globalCompositeOperation = 'destination-out';
+    e_cnvBold = 30;
+    e_flg = 1;
+    $("#eraser").css({
+      'background-color': '#f9bc60'
+    });
+ });
+
+ $("#e_sm").click(function(){
+    ctx.globalCompositeOperation = 'destination-out';
+    e_cnvBold = 10;
+    e_flg = 1;
+    $("#eraser").css({
+      'background-color': '#f9bc60'
+    });
+ });
+ //消しゴムの太さここまで
 
  // 描画クリア
  $("#clear").click(function(){
@@ -295,7 +359,6 @@ document.getElementById("straight").onclick = function(){
 }
 
 function st_tool(){
-
  //キャンパス・ツール以外がクリックされたら線を引かないようにする
   var flg = 1;
   $(document).on('click',function(e){
@@ -548,7 +611,11 @@ $("#la2").click(function(){
 //ペン・消しゴム背景色
 $(document).on('click',function(e){
   if(!$(e.target).closest(cnvs).length &&  !$(e.target).closest('#pen').length
-  &&  !$(e.target).closest("#clear").length && p_flg == 1){
+  &&  !$(e.target).closest("#clear").length  &&  !$(e.target).closest("#menu").length
+  &&  !$(e.target).closest("#m_close").length &&  !$(e.target).closest("#t_close").length
+  &&  !$(e.target).closest("#p_big").length && !$(e.target).closest("#p_mid").length
+  &&  !$(e.target).closest("#p_sm").length && 
+   p_flg == 1){
     p_flg = 0;
     $("#pen").css({
       'background-color': 'transparent'
@@ -558,7 +625,10 @@ $(document).on('click',function(e){
 
 $(document).on('click',function(e){
   if(!$(e.target).closest(cnvs).length &&  !$(e.target).closest('#eraser').length
-  &&  !$(e.target).closest("#clear").length　&& e_flg == 1){
+  &&  !$(e.target).closest("#clear").length　 &&  !$(e.target).closest("#menu").length
+  &&  !$(e.target).closest("#m_close").length && !$(e.target).closest("#e_big").length
+  && !$(e.target).closest("#e_mid").length && !$(e.target).closest("#e_sm").length
+  && !$(e.target).closest("#colorPicker").length && e_flg == 1){
     e_flg = 0;
     $("#eraser").css({
       'background-color': 'transparent'
@@ -651,12 +721,6 @@ function save(){
 
     //console.log(cimg);
 
-<<<<<<< HEAD
-    iref.add({
-      canvas: cimg,
-      time: firebase.firestore.FieldValue.serverTimestamp()
-   });
-=======
       iref.add({
         canvas: cimg,
         time: firebase.firestore.FieldValue.serverTimestamp()
@@ -678,7 +742,6 @@ function save(){
         capital: firebase.firestore.FieldValue.delete()
       });*/
      };
->>>>>>> 6ba24296985bc575dad048acb91d69a6dbe1d996
   });
 };
 //setInterval(save,2000);
