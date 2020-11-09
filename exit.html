@@ -13,7 +13,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-storage.js"></script>
-    
+
     <!-- TODO: Add SDKs for Firebase products that you want to use
     https://firebase.google.com/docs/web/setup#available-libraries -->
     
@@ -54,16 +54,14 @@
         console.log("Document successfully deleted!");
     });
 
-    const firebase_tools = require("firebase-tools");
-
     // サブディレクトリを含めて一括削除
-    await firebase_tools.firestore.delete(ref, {
-      project: process.env.GCLOUD_PROJECT,
-      recursive: true,
-      yes: true,
-      token: functions.config().fb.token
-    });
-    
+    const client = require('firebase-tools');
+    client.firestore
+      .delete(collectionPath, {
+        project: process.env.GCLOUD_PROJECT,
+        recursive: true,
+        yes: true
+      }); 
     </script>
     
 </body>
