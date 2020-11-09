@@ -243,6 +243,45 @@ function showmenu() {
   }
 }
 
+//URL表示
+  var cookies = document.cookie;
+  var cookieItem = cookies.split(";");
+  var elem = cookieItem[0].split("=");
+  var elem1 = cookieItem[1].split("=");
+  var id = "def";
+
+  if(elem[0] == "id"){
+    id = "id="+elem[1];
+  }else{
+    id = "id="+elem1[1];
+  }
+
+document.getElementById('url_modal').addEventListener('click',showURL);
+function showURL(){
+  //モーダルウィンドウと中身の要素を生成・クラスを付与
+  const modelElement = document.createElement('div');
+  modelElement.classList.add('model');
+  const innerElement = document.createElement('div');
+  innerElement.classList.add('inner');
+  
+  //モーダルウィンドウに表示する要素
+  innerElement.innerHTML = 
+  '<p>https://project2020-93dda.web.app/student.html? + id</p>'
+
+  //モーダルウィンドウに中身を配置
+  modelElement.appendChild(innerElement);
+  document.body.appendChild(modelElement);
+
+  innerElement.addEventListener('click',() => {
+    closeModal(modelElement);
+  });
+}
+
+//モーダルウィンドウを閉じる処理
+function closeModal(modalElement) {
+  document.body.removeChild(modalElement);
+}
+
 //退出確認
 document.getElementById("exit").onclick = function () {
   var exitresult = confirm("部屋を退出しますか？");
