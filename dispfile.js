@@ -23,7 +23,7 @@ disp.onSnapshot(function(snapshot) {
     })*/
     setp.onSnapshot((snapshot)=> {
     setp.get().then(function(doc) {
-    document.getElementById('imgSample').src = doc.data().key;
+      document.getElementById('imgSample').src = doc.data().key;
     })
     })
 });

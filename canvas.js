@@ -23,6 +23,22 @@ $('#canvas2').attr('height', h);
  var color = '#ffffff';   //カラーコード保持変数
  var rgba_code = "255, 255, 255, 1"; //線の色
 
+var cookies = document.cookie;
+var cookieItem = cookies.split(";");
+var elem = cookieItem[0].split("=");
+var elem1 = cookieItem[1].split("=");
+var id = "def";
+
+if(elem[0] == "id"){
+id = "id="+elem[1];
+}else{
+id = "id="+elem1[1];
+}
+console.log(id);
+
+var roomurl = "https://project2020-93dda.web.app/student.html?"+id;
+console.log(roomurl);
+
 var red = 255;   //カラーコード変換・波線の色変換用
 var green = 255;   //カラーコード変換・波線の色変換用
 var blue = 255;   //カラーコード変換・波線の色変換用
