@@ -62,21 +62,6 @@ body{
     position: absolute;                /* 親要素を基準 */
   }
 
-.url_modal{
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.inner {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.9);
-    border: solid 3px #dfe4ea;
-    border-radius: 10px;
-}
-
 #txt{
     writing-mode: vertical-rl;
 }
