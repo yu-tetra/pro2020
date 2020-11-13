@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="./CSS/blackboard.css">
     <script src="md-color-picker.js"></script>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <title>黒板</title>
 </head>
 
@@ -50,6 +51,7 @@
             <label id="menu">メニュー</label>
             <p id="menulist" class="menulist1">
                 <label id="exit" class="exit">退室</label><br>
+                <label id="showurl">配布用URLの表示</label><br>
                 チョーク:<button id="p_big">大</button>
                 <button id="p_mid">中</button> <button id="p_sm">小</button><br>
                 黒板消し:<button id="e_big">大</button>
@@ -57,7 +59,7 @@
                 <button id="m_close">閉じる</button>
             </p>
         </div>
- 
+
         <label id="txt">文字入力</label>
         <div id="txtform" class="txtform1">
             <form>

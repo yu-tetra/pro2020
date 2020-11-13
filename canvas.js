@@ -23,6 +23,7 @@ $('#canvas2').attr('height', h);
  var color = '#ffffff';   //カラーコード保持変数
  var rgba_code = "255, 255, 255, 1"; //線の色
 
+//url
 var cookies = document.cookie;
 var cookieItem = cookies.split(";");
 var elem = cookieItem[0].split("=");
@@ -37,7 +38,7 @@ id = "id="+elem1[1];
 console.log(id);
 
 var roomurl = "https://project2020-93dda.web.app/student.html?"+id;
-console.log(roomurl);
+//urlここまで
 
 var red = 255;   //カラーコード変換・波線の色変換用
 var green = 255;   //カラーコード変換・波線の色変換用
@@ -258,6 +259,28 @@ function showmenu() {
     });
   }
 }
+
+//URL表示
+document.getElementById("showurl").onclick = function(){
+  Swal.fire({
+    title: '配布用URL',
+    html: roomurl,
+    confirmButtonColor: '#f9bc60',
+    confirmButtonText: 'コピー',
+    showCloseButton: true
+}).then((result) => {   //ボタンが押されたらURLをコピー
+  if(result.value){
+    var ta = document.createElement("textarea");
+    ta.value = roomurl;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    ta.parentElement.removeChild(ta);
+    Swal.fire(
+      'コピーしました'
+    );
+  };
+});
 
 //退出確認
 document.getElementById("exit").onclick = function () {
@@ -771,5 +794,6 @@ function save() {
     };
   });
 };
-//setInterval(save,2000);
+};
+//setInterval(save,2000)
 //canvasを画像に変換ここまで
