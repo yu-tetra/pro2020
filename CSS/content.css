@@ -23,7 +23,7 @@ form{
 }
 
 #submit{
-    margin-left: 600px;
+    margin-left: 700px;
     font-size: 1.5em;
     padding: 8px 10px;
     background-color: #f9bc60;
@@ -36,7 +36,7 @@ form{
 
 #copyTarget{
     height: 40px;
-    width: auto;
+    width: 380px;
 }
 
 

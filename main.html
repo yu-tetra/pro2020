@@ -1,11 +1,13 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link rel="stylesheet" href="./CSS/blackboard.css">
     <script src="md-color-picker.js"></script>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="shortcutico" href="favicon.ico">
     <title>黒板</title>
 </head>
 
@@ -41,9 +43,9 @@
     </script>
 
     <div class="dcanvas">
-        <canvas id="canvas" class="dcanvas" style="border: solid 2px #000;box-sizing: border-box;"></canvas>
-        <canvas id="canvas2" class="dcanvas" style="border: solid 2px #000;box-sizing: border-box;"></canvas>
-        <canvas id="canvas3" class="dcanvas" style="border: solid 2px #000;box-sizing: border-box;"></canvas>
+        <canvas id="canvas" class="dcanvas" style="border: solid 4px #685641;box-sizing: border-box;"></canvas>
+        <canvas id="canvas2" class="dcanvas" style="border: solid 2px #001e1d;box-sizing: border-box;"></canvas>
+        <canvas id="canvas3" class="dcanvas" style="border: solid 2px #001e1d;box-sizing: border-box;"></canvas>
     </div>
 
     <div id="tool" class="tool">
@@ -93,8 +95,10 @@
     <div id="result"><img src=""></div>
    
     <script src="canvas.js"></script>
-   
+    <script src="count.js"></script>
+
     <div id="chat" class="chat">
+       <label id="cnt">参加人数</label><br>
         <textarea id="message" row="10" value="" ></textarea><button id="btn">送信</button>
     </div>
 
@@ -105,12 +109,15 @@
     </div>
 
     <script src="chat.js"></script>
+
     <div id="imag" lass="imag">
         <img id="imgSample" src="./Picture/back.jpg" class="imgSample" crossorigin="anonymous">
         <input type="file" id="upimg" value="画像をアップロード">
     </div>
         <script src="dispfile.js"></script>
         <script src="file.js"></script>
+
+
 
 </body>
 </html>

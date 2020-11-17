@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link rel="stylesheet" href="./CSS/blackboard.css">
+    <link rel="shortcutico" href="favicon.ico">
     <title>黒板</title>
 </head>
 
@@ -67,7 +68,7 @@
         <div>
             <label id="menu">メニュー</label>
             <p id="menulist" class="menulist1">
-                <label id="exit" class="exit">退室</label><br>
+                <label id="exit_s" class="exit_s">退室</label><br>
                 <button id="m_close">閉じる</button>
             </p>
         </div>
@@ -91,15 +92,33 @@
 
 
 <script>
-    document.getElementById("exit").onclick = function(){
-    var exitresult = confirm("部屋を退出しますか？");
+    document.getElementById("menu").onclick = function () {
+    showmenu();
+    };
 
-    if(exitresult){
-        location.href= "exit.html";
-    }else{
-        return;
+    //メニュー表示・非表示
+    function showmenu() {
+    var menustatus = document.getElementById("menulist");
+    if (menustatus.className == "menulist1") {
+        menustatus.className = "menulist";
+    } else {
+        menustatus.className = "menulist1";
     }
-}
+    };
+
+    document.getElementById("exit_s").onclick = function(){
+        var exitresult = confirm("部屋を退出しますか？");
+        if(exitresult){
+            location.href= "exit-st.html";
+        }else{
+            return;
+        };
+    };
+
+    document.getElementById("m_close").onclick = function () {
+    var wObjballoon2 = document.getElementById("menulist");
+    wObjballoon2.className = "menulist1";
+    };
 </script>
 </body>
 </html>

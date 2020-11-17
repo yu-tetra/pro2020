@@ -35,7 +35,6 @@ id = "id="+elem[1];
 }else{
 id = "id="+elem1[1];
 }
-console.log(id);
 
 var roomurl = "https://project2020-93dda.web.app/student.html?"+id;
 //urlここまで
@@ -260,6 +259,18 @@ function showmenu() {
   }
 }
 
+//退出確認
+document.getElementById("exit").onclick = function () {
+  var exitresult = confirm("部屋を退出しますか？");
+
+  if (exitresult) {
+    location.href = "exit.html";
+  } else {
+    return;
+  }
+};
+//退出処理ここまで
+
 //URL表示
 document.getElementById("showurl").onclick = function(){
   Swal.fire({
@@ -281,18 +292,8 @@ document.getElementById("showurl").onclick = function(){
     );
   };
 });
-
-//退出確認
-document.getElementById("exit").onclick = function () {
-  var exitresult = confirm("部屋を退出しますか？");
-
-  if (exitresult) {
-    location.href = "exit.html";
-  } else {
-    return;
-  }
-}
-//退出処理ここまで
+};
+//URL表示ここまで
 
 //メニューの閉じボタン
 document.getElementById("m_close").onclick = function () {
@@ -324,7 +325,7 @@ document.getElementById("txt").onclick = function () {
 function textform_positon() {
   $(cnvs).on('click.text', function (e) {
     //クリックした際描画されないようペンを透明に
-    cnvColor = "255, 255, 255, 0";
+    cnvColor = "0, 70, 67, 0";
 
     //座標取得（canvasの左上を基準。-2ずつしているのはborderの分）
     var rect = e.target.getBoundingClientRect();
@@ -371,7 +372,7 @@ document.getElementById("sendtxt").onclick = function gettxt() {
 //キャンバスに文字を書く
 function drawtext(text) {
   //文字のスタイル
-  ctx.font = '32px serif';
+  ctx.font = '32px meiryo,sans-serif';
   ctx.fillStyle = color;
 
   //文字描画位置の指定・文字描画
@@ -647,14 +648,10 @@ $("#la2").click(function () {
 //レイヤーここまで
 
 
-//ペン・消しゴム背景色
-$(document).on('click',function(e){
-  if(!$(e.target).closest(cnvs).length &&  !$(e.target).closest('#pen').length
-  &&  !$(e.target).closest("#clear").length  &&  !$(e.target).closest("#menu").length
-  &&  !$(e.target).closest("#m_close").length &&  !$(e.target).closest("#t_close").length
-  &&  !$(e.target).closest("#p_big").length && !$(e.target).closest("#p_mid").length
-  &&  !$(e.target).closest("#p_sm").length && 
-   p_flg == 1){
+//ペン・消しゴム背景色切替
+//ペン
+$("#eraser,#txt,#straight,#wave,#e_big,#e_mid,#e_sm").click(function(){
+  if(p_flg == 1){
     p_flg = 0;
     $("#pen").css({
       'background-color': 'transparent'
@@ -662,19 +659,16 @@ $(document).on('click',function(e){
   }
 });
 
-$(document).on('click',function(e){
-  if(!$(e.target).closest(cnvs).length &&  !$(e.target).closest('#eraser').length
-  &&  !$(e.target).closest("#clear").length　 &&  !$(e.target).closest("#menu").length
-  &&  !$(e.target).closest("#m_close").length && !$(e.target).closest("#e_big").length
-  && !$(e.target).closest("#e_mid").length && !$(e.target).closest("#e_sm").length
-  && !$(e.target).closest("#colorPicker").length && e_flg == 1){
+//消しゴム
+$("#pen,#txt,#straight,#wave,#p_big,#p_mid,#p_sm").click(function(){
+  if(e_flg == 1){
     e_flg = 0;
     $("#eraser").css({
       'background-color': 'transparent'
     });
   }
 });
-//ペン・消しゴム背景色ここまで
+//ペン・消しゴム背景色切替ここまで
 
 
 //画像の貼り付け（ドラッグアンドドロップ）
@@ -793,7 +787,6 @@ function save() {
         });*/
     };
   });
-};
 };
 //setInterval(save,2000)
 //canvasを画像に変換ここまで

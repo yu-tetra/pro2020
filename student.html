@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="./CSS/content.css">
+    <link rel="shortcutico" href="favicon.ico">
     <title>入室画面</title>
 </head>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -48,6 +49,11 @@
        
         $('#submit').on('click',function(){
             var url = $('#url').val();
+
+            if(!url){
+                    alert("URLが入力されていません。");
+            };
+
             var elem = url.split("=");
             id = elem[1];
             //console.log(id);
@@ -62,13 +68,18 @@
                 var pass = $('#pass').val();
                 //console.log(pass);
 
-                if(pass == passd){
-                    var name = $('#name').val();
+                var name = $('#name').val();
                     var roomid = id;
                     //console.log(name);
                     placen.add({
                         name: name
                     });
+
+                if(!name){
+                    alert("名前が入力されていません。");
+                };
+
+                if(pass == passd && name){
                     document.cookie = "id="+encodeURIComponent(roomid);
                     document.cookie = "name="+name;
                     location.href= "main-st.html";

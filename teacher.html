@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="./CSS/content.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcutico" href="favicon.ico">
     <title>部屋制作</title>
 </head>
 <body>
@@ -51,6 +52,10 @@
         $('#submit').on('click',function(){
             var name = $('#user').val();
             var pass = $('#pass').val();
+
+            if(!name || !pass){
+                alert("入力されていない項目があります。");
+            }else{
             placep.add({
                 password: pass
             })
@@ -65,7 +70,8 @@
                 document.cookie = "name="+name;
                 location.href="teacher_login.html";
             }); 
-        })
+        };
+        });
     </script>
     
 </body>
