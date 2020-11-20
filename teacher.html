@@ -57,7 +57,8 @@
                 alert("入力されていない項目があります。");
             }else{
             placep.add({
-                password: pass
+                password: pass,
+                key: "https://firebasestorage.googleapis.com/v0/b/project2020-93dda.appspot.com/o/back.jpg?alt=media&token=f3ee595f-014e-47c2-85dc-3d903863d058"
             })
             .then(function(docRef) {
                 var roomid = docRef.id;

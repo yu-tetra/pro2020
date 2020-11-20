@@ -1,0 +1,47 @@
+var db = firebase.firestore();
+var cookies = document.cookie;
+var cookieItem = cookies.split(";");
+var elem = cookieItem[0].split("=");
+var elem1 = cookieItem[1].split("=");
+var id = "def";
+
+if (elem[0] == "id") {
+  id = elem[1];
+} else {
+  id = elem1[1];
+};
+
+clist = ["canvas","member","chatroom"];
+dnlist = ["canvas","name","chat"];
+var cnt = 0;
+
+
+
+db.doc(id).delete().then(function() {
+    console.log("Document successfully deleted!");
+});
+
+var size;
+var delref;
+
+function cldelete(dcl,dod){
+    var ref = db.collection("rooms").doc(id).collection(dcl);
+
+    ref.get().then(function (query) {
+        size = query.size // will return the collection size
+        console.log(size);
+
+        ref.orderBy(dod).get()
+        .then((querySnapshot) => {
+            for(i=0;i<size;i++){
+                console.log(i);
+                console.log(querySnapshot["docs"][i].id);
+                var did = querySnapshot["docs"][i].id;
+      
+                ref.doc(did).delete().then(function() {
+                    console.log("Document successfully deleted!");
+                })
+          }
+        })
+    });
+};
