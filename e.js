@@ -15,11 +15,7 @@ clist = ["canvas","member","chatroom"];
 dnlist = ["canvas","name","chat"];
 var cnt = 0;
 
-
-
-db.doc(id).delete().then(function() {
-    console.log("Document successfully deleted!");
-});
+cldelete(clist[cnt],dnlist[cnt]);
 
 var size;
 var delref;
@@ -39,9 +35,19 @@ function cldelete(dcl,dod){
                 var did = querySnapshot["docs"][i].id;
       
                 ref.doc(did).delete().then(function() {
-                    console.log("Document successfully deleted!");
+                    
                 })
           }
-        })
+        });
+        cnt += 1;
+
+        if(cnt == 3){
+            console.log("Document successfully deleted!");
+            db.doc(id).delete().then(function() {
+                console.log("Document successfully deleted!");
+            });
+        }else{
+            cldelete(clist[cnt],dnlist[cnt]);
+        };
     });
 };
