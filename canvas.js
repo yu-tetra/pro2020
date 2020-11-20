@@ -318,7 +318,7 @@ document.getElementById("txt").onclick = function () {
   });
   //処理をペンでの描画からテキストフォーム表示に切り替える・フォームの表示
   textform_positon();
-  console.log(p_flg);
+  //console.log(p_flg);
 };
 
 //クリック位置にテキスト入力フォームを表示
@@ -383,7 +383,7 @@ function drawtext(text) {
   ctx.fillText(text, mouseX, mouseY);
   save();
 
-  console.log(color);
+  //console.log(color);
 }
 //テキストツールここまで
 
@@ -767,7 +767,7 @@ function save() {
 
     iref.get().then(function (query) {
       size = query.size // will return the collection size
-      console.log(size);
+      //console.log(size);
       query.forEach((doc) => {
         dalref = doc.data().canvas;
         //console.log(dalref);

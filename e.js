@@ -34,8 +34,8 @@ function cldelete(dcl,dod){
         ref.orderBy(dod).get()
         .then((querySnapshot) => {
             for(i=0;i<size;i++){
-                console.log(i);
-                console.log(querySnapshot["docs"][i].id);
+                //console.log(i);
+                //console.log(querySnapshot["docs"][i].id);
                 var did = querySnapshot["docs"][i].id;
       
                 ref.doc(did).delete().then(function() {        
