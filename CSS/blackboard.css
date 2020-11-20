@@ -237,7 +237,7 @@ li {
     background-color: #fffffe;
     border: 1px solid #001e1d;
     height: 30px;
-    width: 11vw;
+    width: 10vw;
 }
 
 #disp{
@@ -254,7 +254,7 @@ li {
 .btn{
     float: right;
     margin: 0 40 0 0;
-    padding: 2% 3%;
+    padding: 1% 2%;
     cursor: pointer;
     background-color: #f9bc60;
     color: #001e1d;
