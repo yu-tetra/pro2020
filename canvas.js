@@ -136,7 +136,6 @@ var e_flg = 0; //消しゴム使用フラグ(0:未使用 1:使用)
 $("#eraser").click(function () {
   ctx.globalCompositeOperation = 'destination-out';
   e_cnvBold = 30;    //線の太さ
-  cnvColor = "0, 70, 67, 1";  //線の色
   e_flg = 1;
   $("#eraser").css({
     'background-color': '#f9bc60'
@@ -313,6 +312,7 @@ var mouseY;
 
 //フォーム呼び出し
 document.getElementById("txt").onclick = function () {
+  ctx.globalCompositeOperation = oldGCO;
   $("#txt").css({
     'color': '#f9bc60'
   });
@@ -361,6 +361,9 @@ document.getElementById("t_close").onclick = function () {
   $("#pen").css({
     'background-color': '#f9bc60'
   });
+  $("#eraser").css({
+    'background-color': 'transparent'
+  });
 };
 
 //入力された文字列の受け取り
@@ -379,6 +382,8 @@ function drawtext(text) {
   ctx.textAlign = 'left';
   ctx.fillText(text, mouseX, mouseY);
   save();
+
+  console.log(color);
 }
 //テキストツールここまで
 
@@ -660,9 +665,10 @@ $("#eraser,#txt,#straight,#wave,#e_big,#e_mid,#e_sm").click(function(){
 });
 
 //消しゴム
-$("#pen,#txt,#straight,#wave,#p_big,#p_mid,#p_sm").click(function(){
+$("#pen,#straight,#wave,#p_big,#p_mid,#p_sm").click(function(){
   if(e_flg == 1){
     e_flg = 0;
+    ctx.globalCompositeOperation = oldGCO;
     $("#eraser").css({
       'background-color': 'transparent'
     });

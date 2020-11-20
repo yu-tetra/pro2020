@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
 body{
     margin-top: 80px;
     margin-left: 140px;
@@ -27,11 +32,13 @@ form{
     font-size: 1.5em;
     padding: 8px 10px;
     background-color: #f9bc60;
+    cursor: pointer;
 }
 
 #cb{
     padding: 8px 10px;
     background-color: #f9bc60;
+    cursor: pointer;
 }
 
 #copyTarget{

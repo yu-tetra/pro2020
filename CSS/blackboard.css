@@ -1,9 +1,18 @@
 @charset "UTF-8";
 
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    overflow: hidden;   /* スクロールさせない */
+}
+
 body{
     background-color: #004643;
     /* font-family: "Kokoro"; */
-    color: white;
+    color: #fffffe;
     margin: 0;
     padding: 0;
 }
@@ -39,6 +48,7 @@ body{
 
 #menu{
     writing-mode: vertical-rl;
+    cursor: pointer;
 }
 
 .menulist1 {
@@ -52,9 +62,10 @@ body{
     padding: 2px;                         /* テキストの前後の余白 */
     background-color:rgba(171,209,198,0.5);    /* 背景色（透明度） */
     width: 200px;                          /* 吹き出し全体の幅 */
-    left : 0%;                           /* 表示位置 */
+    left : 1%;                           /* 表示位置 */
     bottom: 15%;
     z-index: 2;
+    line-height: 2;
 }
  
 .menulist:after {
@@ -62,8 +73,58 @@ body{
     position: absolute;                /* 親要素を基準 */
   }
 
+#exit{
+    cursor: pointer;
+    
+}
+
+#exit:hover{
+    color: #f9bc60;
+}
+
+#showurl{
+    cursor: pointer;
+}
+
+#showurl:hover{
+    color: #f9bc60;
+}
+
+.menutxt{
+    cursor: default;
+}
+
+#p_big{
+    cursor: pointer;
+}
+
+#p_mid{
+    cursor: pointer;
+}
+
+#p_sm{
+    cursor: pointer;
+}
+
+#e_big{
+    cursor: pointer;
+}
+
+#e_mid{
+    cursor: pointer;
+}
+
+#e_sm{
+    cursor: pointer;
+}
+
+#m_close{
+    cursor: pointer;
+}
+
 #txt{
     writing-mode: vertical-rl;
+    cursor: pointer;
 }
 
 .txtform1{
@@ -87,15 +148,18 @@ body{
 
 #straight{
     writing-mode: vertical-rl;
+    cursor: pointer;
 }
 
 #wave{
     writing-mode: vertical-rl;
+    cursor: pointer;
 }
 
 .pen{
     width: 100px;
     height: 40px;
+    cursor: pointer;
 }
 .color {
     position   : relative;             /* 指定した分だけ相対的に移動 */
@@ -114,7 +178,7 @@ body{
     background-color:rgba(171,209,198,0.5);    /* 背景色（透明度） */
     width: 280px;                          /* 吹き出し全体の幅 */
     left : 20%;                           /* 表示位置 */
-    bottom: 12%;
+    bottom: 13%;
     z-index: 2;
 }
  
@@ -126,11 +190,27 @@ body{
 .eraser{
     width: 100px;
     height: 90px;
+    cursor: pointer;
 }
 
 .clear{
     width: 100px;
     height: 100px;
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+    margin-top: 20px;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    margin-bottom: 18px;
+}
+
+#la1 {
+    color: #f9bc60;
 }
 
 #tool{
@@ -141,6 +221,7 @@ body{
     height: auto;
     width: 60%;
     padding: 0;
+    justify-content: space-around;
 }
 
 #chat{
@@ -148,6 +229,15 @@ body{
     top: 0;
     right: 0;
     width: 17%;
+}
+
+#message {
+    resize: none;
+    border-radius: 4px;
+    background-color: #fffffe;
+    border: 1px solid #001e1d;
+    height: 30px;
+    width: 11vw;
 }
 
 #disp{
@@ -161,13 +251,55 @@ body{
     margin: 0;
 }
 
-#btn{
+.btn{
     float: right;
     margin: 0 40 0 0;
+    padding: 2% 3%;
+    cursor: pointer;
+    background-color: #f9bc60;
+    color: #001e1d;
+    text-decoration: none;
+    border-radius: 4px;
+    border-bottom: 3px solid #d37800;
+    outline: none;
+}
+
+.btn:active {
+    transform: translateY(3px);
+    border-bottom: none;
+    outline: none;
 }
 
 table.tdisp td{
     border-bottom: solid 1px #abd1c6;
+}
+
+#upbutton{
+    display: block;
+    width: 150px;
+    height: 30px;
+    position: absolute;
+    right: 65;
+    bottom: 15;
+    margin: 0;
+    padding: 10;
+    cursor: pointer;
+
+    background-color: #f9bc60;
+    color: #001e1d;
+    text-decoration: none;
+    border-radius: 4px;
+    border-bottom: 3px solid #d37800;
+}
+
+#upbutton:active {
+    transform: translateY(3px);
+    border-bottom: none;
+    outline: none;
+}
+
+label input{
+    display: none;
 }
 
 #upimg{
@@ -175,9 +307,9 @@ table.tdisp td{
     position: absolute;
     right: 0;
     bottom: 0;
-    padding: 0;
     margin: 0;
-    padding: 0;
+    cursor: pointer;
+    padding: 10;
 }
 
 #imgSample{
@@ -190,18 +322,3 @@ table.tdisp td{
     height: auto;
 }
 
-li {
-    list-style: none;
-    margin-top: 20px;
-    font-size: 18px;
-    padding: 0;
-    margin: 0;
-}
-
-#la1 {
-    color: #f9bc60;
-}
-
-#message {
-    resize: none;
-}

@@ -43,9 +43,9 @@
     </script>
 
     <div class="dcanvas">
-        <canvas id="canvas" class="dcanvas" style="border: solid 4px #685641;box-sizing: border-box;"></canvas>
-        <canvas id="canvas2" class="dcanvas" style="border: solid 2px #001e1d;box-sizing: border-box;"></canvas>
-        <canvas id="canvas3" class="dcanvas" style="border: solid 2px #001e1d;box-sizing: border-box;"></canvas>
+        <canvas id="canvas" class="dcanvas" style="border: solid 3px #685641;box-sizing: border-box;"></canvas>
+        <canvas id="canvas2" class="dcanvas" style="border: solid 3px #685641;box-sizing: border-box;"></canvas>
+        <canvas id="canvas3" class="dcanvas" style="border: solid 3px #685641;box-sizing: border-box;"></canvas>
     </div>
 
     <div id="tool" class="tool">
@@ -54,9 +54,9 @@
             <p id="menulist" class="menulist1">
                 <label id="exit" class="exit">退室</label><br>
                 <label id="showurl">配布用URLの表示</label><br>
-                チョーク:<button id="p_big">大</button>
+                <label class="menutxt">チョーク:</label><button id="p_big">大</button>
                 <button id="p_mid">中</button> <button id="p_sm">小</button><br>
-                黒板消し:<button id="e_big">大</button>
+                <label class="menutxt">黒板消し:</label><button id="e_big">大</button>
                 <button id="e_mid">中</button> <button id="e_sm">小</button><br>
                 <button id="m_close">閉じる</button>
             </p>
@@ -99,7 +99,8 @@
 
     <div id="chat" class="chat">
        <label id="cnt">参加人数</label><br>
-        <textarea id="message" row="10" value="" ></textarea><button id="btn">送信</button>
+        <textarea id="message" row="10" value="" ></textarea>
+        <button id="btn" class="btn">送信</button>
     </div>
 
     <div id="disp">
@@ -110,14 +111,15 @@
 
     <script src="chat.js"></script>
 
-    <div id="imag" lass="imag">
-        <img id="imgSample" src="./Picture/back.jpg" class="imgSample" crossorigin="anonymous">
-        <input type="file" id="upimg" value="画像をアップロード">
+    <div id="imag" class="imag">
+        <img id="imgSample" src="./Picture/back.jpg" alt onerror="this.onerror = null; this.src='';"
+        class="imgSample" crossorigin="anonymous">
+        <label id="upbutton">
+            画像をアップロード
+            <input type="file" id="upimg" value="画像をアップロード">
+        </label>
     </div>
         <script src="dispfile.js"></script>
         <script src="file.js"></script>
-
-
-
 </body>
 </html>

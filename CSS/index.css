@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
 body{
     margin: 150px 0 0 0;
     text-align: center;
@@ -12,7 +17,22 @@ h1{
     justify-content: center;
 }
 
+a img{
+    border-width: 0px;
+    border-style: none;
+    border-color: #004643;
+    background: transparent;
+}
+
 .image{
+    overflow: visible;
     width: 55%;
     height: auto;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+img:hover{
+    transform: scale(1.1,1.1);
+    transition-duration: 0.3s;
 }
