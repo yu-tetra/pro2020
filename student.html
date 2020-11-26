@@ -82,7 +82,7 @@
                 if(pass == passd && name){
                     document.cookie = "id="+encodeURIComponent(roomid);
                     document.cookie = "name="+name;
-                    document.myform.action = "main-st.html"
+                    location.href = "main-st.html"
                 }else{
                     console.log(passd);
                     alert("パスワードが違います。");
