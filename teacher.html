@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -8,20 +9,18 @@
     <title>部屋制作</title>
 </head>
 <body>
-    <h1>部屋制作</h1>
+    <h1>部屋制作</h1><p>項目を全て入力してください</p>
 
-    <form>
+    <form  name="myform" action="javascript:firebaseadd()">
         ユーザー名を登録<br>
-        <input type="text" id="user" class="in" placeholder="例)〇〇先生"><br>
-
+        <input type="text" id="user" class="in" placeholder="例)〇〇先生" required><br>
         <br>
-
         パスワードを設定<br>
-        <input type="text" id="pass" class="in" placeholder="半角英数8文字以上">
+        <input type="text" id="pass" class="in" placeholder="半角英数8文字以上" pattern="[\w]{8,}" required
+        title="半角英字8文字で入力して下さい。">
+
+        <input type="submit" class="btn btn-primary btn-lg" id="submit" value="作成する"></input>
     </form>
-
-    <button class="btn btn-primary btn-lg" id="submit">制作する</button>
-
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -48,31 +47,36 @@
 
         var db = firebase.firestore();
         var placep = db.collection("rooms")
-        
-        $('#submit').on('click',function(){
+
+        function escapeHTML(string){
+                return string.replace(/\&/g, '&amp;')
+                    .replace(/\</g, '&lt;')
+                    .replace(/\>/g, '&gt;')
+                    .replace(/\"/g, '&quot;')
+                    .replace(/\'/g, '&#x27');
+        }
+
+        function firebaseadd(){
             var name = $('#user').val();
             var pass = $('#pass').val();
 
-            if(!name || !pass){
-                alert("入力されていない項目があります。");
-            }else{
             placep.add({
-                password: pass,
+                password:escapeHTML(pass),
                 key: "https://firebasestorage.googleapis.com/v0/b/project2020-93dda.appspot.com/o/back.jpg?alt=media&token=f3ee595f-014e-47c2-85dc-3d903863d058"
             })
             .then(function(docRef) {
                 var roomid = docRef.id;
-                console.log(roomid);
                 var placen = db.collection("rooms").doc(roomid).collection("member");
                 placen.add({
-                name: name
+                name:escapeHTML(name)
                 });
                 document.cookie = "id="+encodeURIComponent(roomid);
                 document.cookie = "name="+name;
-                location.href="teacher_login.html";
+                location.href = "teacher_login.html"
             }); 
+        //});
         };
-        });
+
     </script>
     
 </body>

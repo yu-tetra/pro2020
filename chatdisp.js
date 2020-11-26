@@ -16,7 +16,7 @@ if(elem[0] == "id"){
 
 var place = db.collection("rooms").doc(id).collection("chatroom").orderBy("time");
 
-console.log(place);
+//console.log(place);
 
 place.onSnapshot((snapshot)=> {
     snapshot.docChanges().forEach((change) => {

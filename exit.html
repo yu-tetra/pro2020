@@ -27,46 +27,6 @@
 
     <script>
     
-    var firebaseConfig = {
-            apiKey: "AIzaSyBpmypIXLxfFpHxcAWRnF2vQB_ONU6OISA",
-            authDomain: "project2020-93dda.firebaseapp.com",
-            databaseURL: "https://project2020-93dda.firebaseio.com",
-            projectId: "project2020-93dda",
-            storageBucket: "project2020-93dda.appspot.com",
-            messagingSenderId: "453159572734",
-            appId: "1:453159572734:web:e3f6b15cb3bb4b1b9401af"
-    };
-        firebase.initializeApp(firebaseConfig)
-
-        var db = firebase.firestore();
-        var cookies = document.cookie;
-        var cookieItem = cookies.split(";");
-        var elem = cookieItem[0].split("=");
-        var elem1 = cookieItem[1].split("=");
-        var id = "def";
-
-        if(elem[0] == "id"){
-            id = elem[1];
-        }else{
-            id = elem1[1];
-        };
-
-        var abc = 'firebase.firestore().collection(rooms).doc('+id+')';
-        console.log(abc);
-
-        // deleteAtPath(abc);
-
-        // function deleteAtPath(path) {
-        //     var deleteFn = firebase.functions().httpsCallable('recursiveDelete');
-        //     deleteFn({ path: path })
-        //         .then(function(result) {
-        //             //logMessage('Delete success: ' + JSON.stringify(result));
-        //         })
-        //         .catch(function(err) {
-        //             // logMessage('Delete failed, see console,');
-        //             console.warn(err);
-        //     });
-        // }
     </script>
     
 </body>

@@ -16,6 +16,14 @@ if(elem[0] == "id"){
 
 var place = db.collection("rooms").doc(id).collection("chatroom");
 
+function escapeHTML(string){
+   return string.replace(/\&/g, '&amp;')
+       .replace(/\</g, '&lt;')
+       .replace(/\>/g, '&gt;')
+       .replace(/\"/g, '&quot;')
+       .replace(/\'/g, '&#x27');
+}
+
 var btn = document.getElementById("btn");
 var message = document.getElementById("message");
 //送信処理
@@ -24,7 +32,7 @@ btn.addEventListener('click', ()=> {
    var chatm = message.value;
    //console.log(chatm);
    place.add({
-      chat: name+":"+chatm,
+      chat: name+":"+escapeHTML(chatm),
       time: firebase.firestore.FieldValue.serverTimestamp()
    });
 });

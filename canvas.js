@@ -281,11 +281,7 @@ document.getElementById("exit").onclick = function () {
     var cnt = 0;
     
     cldelete(clist[cnt],dnlist[cnt]);
-    
-    db.collection("rooms").doc(rid).delete().then(function() {
-        //console.log("Document successfully deleted!");
-    });
-    
+        
     var size;
     var delref;
     
@@ -305,12 +301,15 @@ document.getElementById("exit").onclick = function () {
           
                     ref.doc(did).delete().then(function() {        
                     })
-              }
+                }
               cnt += 1;
     
-                if(cnt > 2){
+                if(cnt == 3){
                     //console.log(cnt);
-                    location.href = "exit.html";
+                    db.collection("rooms").doc(rid).delete().then(function() {
+                      //console.log("Document successfully deleted!");
+                      location.href = "exit.html";
+                  });
                 }else{
                     cldelete(clist[cnt],dnlist[cnt]);
                 };
