@@ -263,9 +263,6 @@ document.getElementById("exit").onclick = function () {
   var exitresult = confirm("部屋を退出しますか？");
 
   if (exitresult) {
-<<<<<<< HEAD
-    location.href = "exit.html";
-=======
       Swal.fire({
         title: '退出処理をしています。画面を閉じずにお待ちください。',
         confirmButtonColor: '#f9bc60',
@@ -325,7 +322,6 @@ document.getElementById("exit").onclick = function () {
             
         });
     };
->>>>>>> 82bf5c34ce2d75d497ed5711347e16493e4ad820
   } else {
     return;
   }
