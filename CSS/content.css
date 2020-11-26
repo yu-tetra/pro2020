@@ -32,18 +32,39 @@ form{
     font-size: 1.5em;
     padding: 8px 10px;
     background-color: #f9bc60;
+    color: #001e1d;
     cursor: pointer;
+    border-radius: 4px;
+    border-bottom: 3px solid #d37800;
+    outline: none;
+}
+
+#submit:active {
+    transform: translateY(3px);
+    border-bottom: none;
+    outline: none;
 }
 
 #cb{
     padding: 8px 10px;
     background-color: #f9bc60;
+    color: #001e1d;
     cursor: pointer;
+    border-radius: 4px;
+    border-bottom: 3px solid #d37800;
+    outline: none;
+}
+
+#cb:active {
+    transform: translateY(3px);
+    border-bottom: none;
+    outline: none;
 }
 
 #copyTarget{
     height: 40px;
     width: 380px;
+    outline: none;
 }
 
 

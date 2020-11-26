@@ -24,7 +24,9 @@
 <body>
 
 <div>
-    <img src="" id="canvas" class="dcanvas" style="background-color: #004643;">
+    <div id="border_st">
+        <img src="" id="canvas" class="dcanvas" style="background-color: #004643;">
+    </div>
     <script>
         var firebaseConfig = {
             apiKey: "AIzaSyBpmypIXLxfFpHxcAWRnF2vQB_ONU6OISA",
@@ -64,18 +66,13 @@
 
 </div>
     
-    <div id="tool" class="tool">
-        <div>
-            <label id="menu">メニュー</label>
-            <p id="menulist" class="menulist1">
-                <label id="exit_s" class="exit_s">退室</label><br>
-                <button id="m_close">閉じる</button>
-            </p>
-        </div>
+    <div class="tool_s">
+        <button id="exit_s">退室</button>
     </div>
 
     <div id="chat" class="chat">
-        <textarea id="message" row="10" value="" ></textarea><button id="btn">送信</button>
+        <textarea id="message" row="10" value="" ></textarea>
+        <button id="btn" class="btn">送信</button>
     </div>
 
     <div id="disp">
@@ -92,20 +89,6 @@
 
 
 <script>
-    document.getElementById("menu").onclick = function () {
-    showmenu();
-    };
-
-    //メニュー表示・非表示
-    function showmenu() {
-    var menustatus = document.getElementById("menulist");
-    if (menustatus.className == "menulist1") {
-        menustatus.className = "menulist";
-    } else {
-        menustatus.className = "menulist1";
-    }
-    };
-
     document.getElementById("exit_s").onclick = function(){
         var exitresult = confirm("部屋を退出しますか？");
         if(exitresult){
@@ -113,11 +96,6 @@
         }else{
             return;
         };
-    };
-
-    document.getElementById("m_close").onclick = function () {
-    var wObjballoon2 = document.getElementById("menulist");
-    wObjballoon2.className = "menulist1";
     };
 </script>
 </body>
