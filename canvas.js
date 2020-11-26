@@ -263,6 +263,11 @@ document.getElementById("exit").onclick = function () {
   var exitresult = confirm("部屋を退出しますか？");
 
   if (exitresult) {
+      Swal.fire({
+        title: '退出処理をしています。画面を閉じずにお待ちください。',
+        confirmButtonColor: '#f9bc60',
+        showCloseButton: true
+    })
     var db = firebase.firestore();
     var cookies = document.cookie;
     var cookieItem = cookies.split(";");
