@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang=ja>
 <head>
     <meta charset="UTF-8">
@@ -10,18 +11,18 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <body>
     <h1>URLとパスワードを入力</h1>
-    <form>
+    <form action="javascript:formadd()" name="myform">
         URL<br>
-        <input type="text" id="url" class="in"  placeholder="配布されたURLを貼り付け">
+        <input id="url" class="in"  placeholder="配布されたURLを貼り付け" type="url" required>
         <br>
         パスワード<br>
-        <input type="text" id="pass" class="in" placeholder="配布されたパスワードを入力">
+        <input type="text" id="pass" class="in" placeholder="配布されたパスワードを入力" required>
         <br>
         名前を入力<br>
-        <input type="text" id="name" class="in" placeholder="チャットで表示される名前">
-    </form>
+        <input type="text" id="name" class="in" placeholder="チャットで表示される名前" required>
 
-    <button class="btn btn-primary btn-lg" id="submit">入室</button>
+        <input type="submit" class="btn btn-primary btn-lg" id="submit" value="入室"></input>
+    </form>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -46,14 +47,17 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         var id = "id";
+
+        function escapeHTML(string){
+                return string.replace(/\&/g, '&amp;')
+                    .replace(/\</g, '&lt;')
+                    .replace(/\>/g, '&gt;')
+                    .replace(/\"/g, '&quot;')
+                    .replace(/\'/g, '&#x27');
+        };
        
-        $('#submit').on('click',function(){
+        function formadd(){
             var url = $('#url').val();
-
-            if(!url){
-                    alert("URLが入力されていません。");
-            };
-
             var elem = url.split("=");
             id = elem[1];
             //console.log(id);
@@ -72,23 +76,19 @@
                     var roomid = id;
                     //console.log(name);
                     placen.add({
-                        name: name
+                        name: escapeHTML(name)
                     });
-
-                if(!name){
-                    alert("名前が入力されていません。");
-                };
 
                 if(pass == passd && name){
                     document.cookie = "id="+encodeURIComponent(roomid);
                     document.cookie = "name="+name;
-                    location.href= "main-st.html";
+                    location.href = "main-st.html"
                 }else{
                     console.log(passd);
                     alert("パスワードが違います。");
                 }
             });
-        })
+        }
     </script>
 
 </body>
