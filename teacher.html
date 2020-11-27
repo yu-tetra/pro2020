@@ -57,7 +57,7 @@
         }
 
         function firebaseadd(){
-            var name = $('#user').val();
+            var name = escapeHTML($('#user').val());
             var pass = $('#pass').val();
 
             placep.add({
@@ -68,7 +68,7 @@
                 var roomid = docRef.id;
                 var placen = db.collection("rooms").doc(roomid).collection("member");
                 placen.add({
-                name:escapeHTML(name)
+                name:name
                 });
                 document.cookie = "id="+encodeURIComponent(roomid);
                 document.cookie = "name="+name;

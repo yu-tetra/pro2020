@@ -73,11 +73,11 @@
                 var pass = $('#pass').val();
                 //console.log(pass);
 
-                var name = $('#name').val();
+                var name = escapeHTML($('#name').val());
                     var roomid = id;
                     //console.log(name);
                     placen.add({
-                        name: escapeHTML(name)
+                        name: name
                     });
 
                 if(pass == passd && name){
