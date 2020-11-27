@@ -265,8 +265,7 @@ document.getElementById("exit").onclick = function () {
   if (exitresult) {
       Swal.fire({
         title: '退出処理をしています。画面を閉じずにお待ちください。',
-        confirmButtonColor: '#f9bc60',
-        showCloseButton: true
+        confirmButtonColor: '#f9bc60'
     })
     var db = firebase.firestore();
     var cookies = document.cookie;
