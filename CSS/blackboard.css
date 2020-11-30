@@ -192,7 +192,7 @@ body{
     padding: 2px;                         /* テキストの前後の余白 */
     background-color:rgba(171,209,198,0.5);    /* 背景色（透明度） */
     width: 280px;                          /* 吹き出し全体の幅 */
-    left : 20%;                           /* 表示位置 */
+    left : 18%;                           /* 表示位置 */
     bottom: 13%;
     z-index: 2;
 }
@@ -232,13 +232,31 @@ li {
     color: #f9bc60;
 }
 
+#dl {
+    padding: 0.8% 0.9%;
+    cursor: pointer;
+    background-color: #f9bc60;
+    color: #001e1d;
+    text-decoration: none;
+    border-radius: 4px;
+    border-bottom: 3px solid #d37800;
+    outline: none;
+    font-size: 1.1em;
+}
+
+#dl:active {
+    transform: translateY(3px);
+    border-bottom: none;
+    outline: none;
+}
+
 #tool{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
     height: auto;
-    width: 60%;
+    width: 80vw;
     padding: 0;
     justify-content: space-around;
 }
@@ -353,7 +371,7 @@ label input{
 /* 生徒用 */
 #tool_s{
     height: auto;
-    width: 60%;
+    width: 80vw;
     padding: 0;
 }
 
@@ -369,10 +387,30 @@ label input{
     font-size: 1.8em;
     display: inline-block;
     margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 30px;
 }
 
 #exit_s:active {
+    transform: translateY(3px);
+    border-bottom: none;
+    outline: none;
+}
+
+#dl_s {
+    margin-left: 40px;
+    margin-top: 20px;
+    padding: 0.8% 0.8%;
+    cursor: pointer;
+    background-color: #f9bc60;
+    color: #001e1d;
+    text-decoration: none;
+    border-radius: 4px;
+    border-bottom: 3px solid #d37800;
+    outline: none;
+    font-size: 1.1em;
+}
+
+#dl_s:active {
     transform: translateY(3px);
     border-bottom: none;
     outline: none;

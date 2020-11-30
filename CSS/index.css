@@ -4,8 +4,9 @@
 }
 
 body{
-    margin: 150px 0 0 0;
+    margin: 100px 0 0 0;
     text-align: center;
+    overflow: hidden;
 }
 
 h1{
@@ -15,7 +16,7 @@ h1{
 .memo{
     display: flex;
     justify-content: center;
-    margin-bottom: 100px;
+    margin-bottom: 60px;
 }
 
 a img{

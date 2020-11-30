@@ -55,6 +55,7 @@ function canvasdraw() {
     clickFlg = 0; // マウス押下終了
     save();
   }).mousemove(function (e) {
+    rect = cnvs.getBoundingClientRect();
     // マウス移動処理
     if (!clickFlg) return false;
     draw(e.offsetX, e.offsetY);
