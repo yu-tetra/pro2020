@@ -27,7 +27,9 @@
     <div id="border_st">
         <img src="" id="canvas" class="dcanvas" style="background-color: #004643;">
     </div>
+    <a download="" href="" id="dlimg">Download</a>
     <script>
+        var imgscr;
         var firebaseConfig = {
             apiKey: "AIzaSyBpmypIXLxfFpHxcAWRnF2vQB_ONU6OISA",
             authDomain: "project2020-93dda.firebaseapp.com",
@@ -58,7 +60,10 @@
             snapshot.docChanges().forEach((change) => {
                 if(change.type === "added"){
             // doc.data() is never undefined for query doc snapshots
-                    document.getElementById('canvas').src = change.doc.data().canvas;
+                    imgscr = change.doc.data().canvas;
+                    document.getElementById('canvas').src = imgscr;
+                    document.getElementById('dlimg').href = imgscr;
+                    document.getElementById('dlimg').download = id+"png";
                 }
             });
         });
