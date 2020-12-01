@@ -8,6 +8,8 @@
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="shortcutico" href="favicon.ico">
+    <link href="../jquery.fs.zoomer.css" rel="stylesheet" type="text/css" media="all">
+    <script src="jquery.fs.zoomer.js"></script>
     <title>黒板</title>
 </head>
 
@@ -105,6 +107,7 @@
 
     <script src="chat.js"></script>
 
+    
     <div id="imag" class="imag">
         <img id="imgSample" src="" alt onerror="this.onerror = null; this.src='';"
         class="imgSample" crossorigin="anonymous">
@@ -115,5 +118,11 @@
     </div>
         <script src="dispfile.js"></script>
         <script src="file.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $(".zoomer_basic").zoomer();
+            });
+        </script>
 </body>
 </html>

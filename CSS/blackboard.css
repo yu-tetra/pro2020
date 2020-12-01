@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/**/
+
 *{
     margin: 0;
     padding: 0;
@@ -280,7 +280,7 @@ li {
 
 #disp{
     width: 17%;
-    height: 330px;
+    height: 40vh;
     position: absolute;
     top: 60px;
     right: 0px;
