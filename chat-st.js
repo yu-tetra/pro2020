@@ -34,7 +34,7 @@ btn.addEventListener('click', ()=> {
    place.add({
       chat: name+":"+escapeHTML(chatm),
       time: firebase.firestore.FieldValue.serverTimestamp(),
-      color: "#ff6e6c"
+      color: "#ffffff"
    });
 });
 document.addEventListener("submit", (e)=>{
