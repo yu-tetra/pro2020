@@ -7,6 +7,7 @@ var w = $('.dcanvas').width();
 //console.log(w);
 var h = $('.dcanvas').height();
 //console.log(h);
+
 const cnvWidth = w;
 const cnvHeight = h;
 
@@ -14,6 +15,21 @@ $('#canvas').attr('width', w);
 $('#canvas').attr('height', h);
 $('#canvas2').attr('width', w);
 $('#canvas2').attr('height', h);
+
+window.addEventListener( 'resize', function() {
+    // 変数宣言
+    var w = $('.dcanvas').width();
+    var h = $('.dcanvas').height();
+
+    const cnvWidth = w;
+    const cnvHeight = h;
+
+    $('#canvas').attr('width', w);
+    $('#canvas').attr('height', h);
+    $('#canvas2').attr('width', w);
+    $('#canvas2').attr('height', h);
+
+}, false );
 
  var cnvColor = "255, 255, 255, 1";  // 線の色(赤、緑、青、透明度)初期値
  var cnvBold = 3;  // 線の太さ
@@ -313,7 +329,7 @@ document.getElementById("exit").onclick = function () {
                     //console.log(cnt);
                     db.collection("rooms").doc(rid).delete().then(function() {
                       //console.log("Document successfully deleted!");
-                      location.href = "exit.html";
+                      window.open('about:blank','_self').close();
                   });
                 }else{
                     cldelete(clist[cnt],dnlist[cnt]);

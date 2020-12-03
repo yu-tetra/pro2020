@@ -9,7 +9,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="shortcutico" href="favicon.ico">
     <link href="../jquery.fs.zoomer.css" rel="stylesheet" type="text/css" media="all">
-    <script src="jquery.fs.zoomer.js"></script>
     <title>黒板</title>
 </head>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -20,7 +19,7 @@
     <!-- TODO: Add SDKs for Firebase products that you want to use
     https://firebase.google.com/docs/web/setup#available-libraries -->
 
-<body>
+<body onUnload="opener.location.href='exit.html';">
     <script> // Your web app's Firebase configuration
         var firebaseConfig = {
             apiKey: "AIzaSyBpmypIXLxfFpHxcAWRnF2vQB_ONU6OISA",
@@ -120,9 +119,7 @@
         <script src="file.js"></script>
 
         <script>
-            $(document).ready(function(){
-                $(".zoomer_basic").zoomer();
-            });
+
         </script>
 </body>
 </html>
