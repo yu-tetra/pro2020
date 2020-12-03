@@ -363,11 +363,11 @@ label input{
     object-fit: contain;
     transition-duration: 0.5s;
 }
-
+/* 
 #imgSample:hover{
     transform: scale(1.1,1.1);
     transition-duration: 0.3s;
-}
+} */
 
 /* 生徒用 */
 #tool_s{
