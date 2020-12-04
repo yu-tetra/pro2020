@@ -31,7 +31,7 @@ disp.onSnapshot(function(snapshot) {
 
       var img = document.getElementById("imgSample");
       img.setAttribute('src',a);
-
+      
       $("#imgSample").elevateZoom({
         zoomType : "inner",
         cursor: "crosshair"
