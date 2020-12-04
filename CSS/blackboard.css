@@ -50,8 +50,8 @@ body{
 #menu{
     writing-mode: vertical-rl;
     cursor: pointer;
-    background: #8a9e94;
-    box-shadow: 0px 0px 0px 5px #859c91;
+    background: #13635f;
+    box-shadow: 0px 0px 0px 5px  #13635f;
     border: dashed 2px white;
     padding: 0.2em 0.5em;
 }
@@ -63,7 +63,7 @@ body{
     bottom: -7px;
     border-width: 0 0 15px 15px;
     border-style: solid;
-    border-color: #fff #fff #72837a;
+    border-color: #fff #fff  #13635f;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
@@ -148,8 +148,8 @@ body{
 #txt{
     writing-mode: vertical-rl;
     cursor: pointer;
-    background: #8a9e94;
-    box-shadow: 0px 0px 0px 5px #859c91;
+    background: #13635f;
+    box-shadow: 0px 0px 0px 5px  #13635f;
     border: dashed 2px white;
     padding: 0.2em 0.5em;
 }
@@ -161,7 +161,7 @@ body{
         bottom: -7px;
         border-width: 0 0 15px 15px;
         border-style: solid;
-        border-color: #fff #fff #72837a;
+        border-color: #fff #fff  #13635f;
         box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
 .txtform1{
@@ -194,8 +194,8 @@ body{
 #straight{
     writing-mode: vertical-rl;
     cursor: pointer;
-    background: #8a9e94;
-    box-shadow: 0px 0px 0px 5px #859c91;
+    background: #13635f;
+    box-shadow: 0px 0px 0px 5px #13635f;
     border: dashed 2px white;
     padding: 0.2em 0.5em;
 
@@ -208,7 +208,7 @@ body{
     bottom: -7px;
     border-width: 0 0 15px 15px;
     border-style: solid;
-    border-color: #fff #fff #72837a;
+    border-color: #fff #fff  #13635f;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
 #straight :hover{
@@ -219,8 +219,8 @@ body{
 #wave{
     writing-mode: vertical-rl;
     cursor: pointer;
-    background: #8a9e94;
-    box-shadow: 0px 0px 0px 5px #859c91;
+    background:  #13635f;
+    box-shadow: 0px 0px 0px 5px  #13635f;
     border: dashed 2px white;
     padding: 0.2em 0.5em;
 }
@@ -231,7 +231,7 @@ body{
     bottom: -7px;
     border-width: 0 0 15px 15px;
     border-style: solid;
-    border-color: #fff #fff #72837a;
+    border-color: #fff #fff  #13635f;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
@@ -286,10 +286,14 @@ li {
     list-style: none;
     margin-top: 20px;
     font-size: 18px;
-    padding: 0;
-    margin: 0;
+
+    margin-top: 5px;
     cursor: pointer;
     margin-bottom: 18px;
+    background: #13635f;
+    box-shadow: 0px 0px 0px 5px  #13635f;
+    border: dashed 2px white;
+    padding: 0.2em 0.5em;
 }
 
 #la1 {
