@@ -12,7 +12,10 @@ if(elem[0] == "id"){
 }
 
 var setp = db.collection("rooms").doc(id);
-var disp = db.collection("rooms")
+var disp = db.collection("rooms");
+
+var a;
+
 
 disp.onSnapshot(function(snapshot) {
    /* snapshot.docChanges().forEach(function(change) {
@@ -24,6 +27,16 @@ disp.onSnapshot(function(snapshot) {
     setp.onSnapshot((snapshot)=> {
     setp.get().then(function(doc) {
       document.getElementById('imgSample').src = doc.data().key;
+      a = doc.data().key;
+
+      var img = document.getElementById("imgSample");
+      img.setAttribute('src',a);
+
+      $("#imgSample").elevateZoom({
+        zoomType : "inner",
+        cursor: "crosshair"
+      });
     })
-    })
+  });
 });
+

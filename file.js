@@ -49,6 +49,11 @@ objFile.addEventListener("change", function(evt) {
       setp.update({
         key:url,
       })
+    
+      var img = document.getElementById("imgSample");
+      var src = img.getAttribute("src")
+      img.setAttribute('data-zoom-image',src);
+
       //console.log(url);
       //document.getElementById('imgSample').src = url;
     })

@@ -351,7 +351,6 @@ label input{
 }
 
 #imgSample{
-    z-index: 4;
     overflow: visible;
     position: absolute;
     right: 0;

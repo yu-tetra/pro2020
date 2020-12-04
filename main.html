@@ -7,7 +7,6 @@
     <script src="md-color-picker.js"></script>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
     <script src="jquery.elevatezoom.js" type="text/javascript"></script>
 
     <link rel="shortcutico" href="favicon.ico">
@@ -21,7 +20,7 @@
     <!-- TODO: Add SDKs for Firebase products that you want to use
     https://firebase.google.com/docs/web/setup#available-libraries -->
 
-<body>
+<body onUnload="opener.location.href='exit.html';">
     <script> // Your web app's Firebase configuration
         var firebaseConfig = {
             apiKey: "AIzaSyBpmypIXLxfFpHxcAWRnF2vQB_ONU6OISA",
@@ -107,25 +106,15 @@
     </div>
 
     <script src="chat.js"></script>
-    
+
     <img id="imgSample" src="" alt onerror="this.onerror = null; this.src='';"
-    class="imgSample" crossorigin="anonymous">
+    class="imgSample" crossorigin="anonymous" data-zoom-image="">
     <label id="upbutton">
         画像をアップロード
         <input type="file" id="upimg" value="画像をアップロード">
     </label>
 
-    <script>
-        jQuery(function($) {
-            $("imgSample").elevateZoom({
-                zoomType: "inner",
-                cursor: "crosshair"
-            });
-        });
-    </script>
-
     <script src="dispfile.js"></script>
     <script src="file.js"></script>
-    
 </body>
 </html>
