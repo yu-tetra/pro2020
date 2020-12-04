@@ -50,6 +50,21 @@ body{
 #menu{
     writing-mode: vertical-rl;
     cursor: pointer;
+    background: #8a9e94;
+    box-shadow: 0px 0px 0px 5px #859c91;
+    border: dashed 2px white;
+    padding: 0.2em 0.5em;
+}
+
+#menu:after{
+    position: absolute;
+    content: '';
+    right: -7px;
+    bottom: -7px;
+    border-width: 0 0 15px 15px;
+    border-style: solid;
+    border-color: #fff #fff #72837a;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
 .menulist1 {
@@ -133,8 +148,22 @@ body{
 #txt{
     writing-mode: vertical-rl;
     cursor: pointer;
+    background: #8a9e94;
+    box-shadow: 0px 0px 0px 5px #859c91;
+    border: dashed 2px white;
+    padding: 0.2em 0.5em;
 }
 
+#txt :after{
+        position: absolute;
+        content: '';
+        right: -7px;
+        bottom: -7px;
+        border-width: 0 0 15px 15px;
+        border-style: solid;
+        border-color: #fff #fff #72837a;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
 .txtform1{
     display: none;
     z-index: 2;
@@ -165,11 +194,45 @@ body{
 #straight{
     writing-mode: vertical-rl;
     cursor: pointer;
+    background: #8a9e94;
+    box-shadow: 0px 0px 0px 5px #859c91;
+    border: dashed 2px white;
+    padding: 0.2em 0.5em;
+
+}
+
+#straight :after{
+    position: absolute;
+    content: '';
+    right: -7px;
+    bottom: -7px;
+    border-width: 0 0 15px 15px;
+    border-style: solid;
+    border-color: #fff #fff #72837a;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+#straight :hover{
+    transform: scale(1.1,1.1);
+    transition-duration: 0.3s;
 }
 
 #wave{
     writing-mode: vertical-rl;
     cursor: pointer;
+    background: #8a9e94;
+    box-shadow: 0px 0px 0px 5px #859c91;
+    border: dashed 2px white;
+    padding: 0.2em 0.5em;
+}
+#wave :after{
+    position: absolute;
+    content: '';
+    right: -7px;
+    bottom: -7px;
+    border-width: 0 0 15px 15px;
+    border-style: solid;
+    border-color: #fff #fff #72837a;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
 .pen{
@@ -417,3 +480,5 @@ label input{
     outline: none;
 }
 /* 生徒用 */
+
+    
