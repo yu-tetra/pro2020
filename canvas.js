@@ -16,20 +16,6 @@ $('#canvas').attr('height', h);
 $('#canvas2').attr('width', w);
 $('#canvas2').attr('height', h);
 
-window.addEventListener( 'resize', function() {
-    // 変数宣言
-    var w = $('.dcanvas').width();
-    var h = $('.dcanvas').height();
-
-    const cnvWidth = w;
-    const cnvHeight = h;
-
-    $('#canvas').attr('width', w);
-    $('#canvas').attr('height', h);
-    $('#canvas2').attr('width', w);
-    $('#canvas2').attr('height', h);
-
-}, false );
 
  var cnvColor = "255, 255, 255, 1";  // 線の色(赤、緑、青、透明度)初期値
  var cnvBold = 3;  // 線の太さ
