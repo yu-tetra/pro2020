@@ -14,8 +14,8 @@ if(elem[0] == "id"){
 var setp = db.collection("rooms").doc(id);
 var disp = db.collection("rooms");
 
-var a;
-
+var dk;
+var zoomflg = true;
 
 disp.onSnapshot(function(snapshot) {
    /* snapshot.docChanges().forEach(function(change) {
@@ -27,16 +27,31 @@ disp.onSnapshot(function(snapshot) {
     setp.onSnapshot((snapshot)=> {
     setp.get().then(function(doc) {
       document.getElementById('imgSample').src = doc.data().key;
-      a = doc.data().key;
+      dk= doc.data().key;
 
       var img = document.getElementById("imgSample");
-      img.setAttribute('src',a);
+      img.setAttribute('src',dk);
+
+      zoom();
       
-      $("#imgSample").elevateZoom({
-        zoomType : "inner",
-        cursor: "crosshair"
+      $("#zoom_b").off('click');
+      $("#zoom_b").on('click',function(){
+        if(zoomflg){
+          $.removeData(img,'elevateZoom');
+          $('.zoomContainer').remove();
+          zoomflg = false;
+        }else{
+          zoom();
+          zoomflg = true;
+        }
       });
     })
   });
 });
 
+function zoom(){
+  $("#imgSample").elevateZoom({
+    zoomType : "inner",
+    cursor: "crosshair"
+  });
+}

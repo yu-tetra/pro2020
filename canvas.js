@@ -290,7 +290,6 @@ document.getElementById("exit").onclick = function () {
     cldelete(clist[cnt],dnlist[cnt]);
         
     var size;
-    var delref;
     
     function cldelete(dcl,dod){
         var ref = db.collection("rooms").doc(id).collection(dcl);
