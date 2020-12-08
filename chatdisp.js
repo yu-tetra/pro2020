@@ -24,7 +24,6 @@ place.onSnapshot((snapshot)=> {
        if(change.type === "added"){
           // doc.data() is never undefined for query doc snapshots
           $('#tdisp').append('<tr><td><font color="'+change.doc.data().color+'">'+change.doc.data().chat+'</font></td></tr>');
-          console.log(hc)
       }
     });
    //document.getElementById("disp").scrollBy(0,hc);
