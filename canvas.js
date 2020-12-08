@@ -83,7 +83,6 @@ function canvasdraw() {
      ctx.lineTo(x, y);
    }
    ctx.stroke();
-   console.log(cnvBold);
  };
 
  //ペン

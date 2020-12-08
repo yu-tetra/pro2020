@@ -49,6 +49,7 @@ disp.onSnapshot(function(snapshot) {
   });
 });
 
+//ズーム
 function zoom(){
   $("#imgSample").elevateZoom({
     zoomType : "inner",

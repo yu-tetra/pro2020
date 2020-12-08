@@ -50,6 +50,7 @@ objFile.addEventListener("change", function(evt) {
         key:url,
       })
     
+      //ズーム用
       var img = document.getElementById("imgSample");
       var src = img.getAttribute("src")
       img.setAttribute('data-zoom-image',src);
