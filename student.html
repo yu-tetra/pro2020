@@ -48,7 +48,7 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         var id = "id";
-
+        var name;
         function escapeHTML(string){
                 return string.replace(/\&/g, '&amp;')
                     .replace(/\</g, '&lt;')
@@ -74,7 +74,7 @@
                 //console.log(pass);
 
                 function addname() {
-                    var name = escapeHTML($('#name').val());
+                    name = escapeHTML($('#name').val());
                     var roomid = id;
                     //console.log(name);
                     placen.add({
