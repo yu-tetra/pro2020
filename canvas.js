@@ -94,7 +94,7 @@ function canvasdraw() {
 
  $("#pen").click(function(){
    ctx.globalCompositeOperation = oldGCO;
-   cnvBold = 3;    //線の太さ
+   cnvBold = cnvBold;    //線の太さ
    cnvColor = rgba_code;  //線の色
    p_flg = 1;
    $("#pen").css({
@@ -138,7 +138,7 @@ $("#p_sm").click(function(){
 var e_flg = 0; //消しゴム使用フラグ(0:未使用 1:使用)
 $("#eraser").click(function () {
   ctx.globalCompositeOperation = 'destination-out';
-  e_cnvBold = 30;    //線の太さ
+  e_cnvBold = e_cnvBold;    //線の太さ
   e_flg = 1;
   $("#eraser").css({
     'background-color': '#f9bc60'
@@ -416,7 +416,7 @@ document.getElementById("t_close").onclick = function () {
   //描画に戻す
   p_flg = 1;
   cnvColor = rgba_code; //線の色
-  cnvBold = 3;  // 線の太さ
+  //cnvBold = 3;  // 線の太さ
   $("#pen").css({
     'background-color': '#f9bc60'
   });
@@ -469,11 +469,11 @@ function st_tool(){
     if (!$(e.target).closest(cnvs).length && !$(e.target).closest('#straight').length) {
       flg = 0;
 
-      //「波線を引く」以外がクリックされたときは描画色を戻す
+      //「直線を引く」以外がクリックされたときは描画色を戻す
       if (!$(e.target).closest('#wave').length) {
         //描画に戻す
         cnvColor = rgba_code; //線の色
-        cnvBold = 3;  // 線の太さ
+        //cnvBold = 3;  // 線の太さ
       }
 
       $("#straight").css({
@@ -515,7 +515,7 @@ function st_tool(){
 
     //描画に戻す
     cnvColor = rgba_code; //線の色
-    cnvBold = 3;  // 線の太さ
+    //cnvBold = 3;  // 線の太さ
     p_flg = 1; //ペン使用フラグ(0:未使用 1:使用)
     $("#pen").css({
       'background-color': '#f9bc60'
@@ -598,7 +598,7 @@ function wv_tool() {
 
     //描画に戻す
     cnvColor = rgba_code; //線の色
-    cnvBold = 3;  // 線の太さ
+    //cnvBold = 3;  // 線の太さ
     p_flg = 1; //ペン使用フラグ(0:未使用 1:使用)
     $("#pen").css({
       'background-color': '#f9bc60'
@@ -733,6 +733,25 @@ $("#pen,#straight,#wave,#p_big,#p_mid,#p_sm").click(function(){
     });
   }
 });
+
+//レイヤー切り替え時
+$("#la1,#la2").click(function(){
+  //ペン
+  if(p_flg == 1){
+    ctx.globalCompositeOperation = oldGCO;
+    $("#pen").css({
+     'background-color': '#f9bc60'
+   });
+  }
+  //消しゴム
+  if(e_flg == 1){
+    ctx.globalCompositeOperation = 'destination-out';
+    e_cnvBold = e_cnvBold;    //線の太さ
+    $("#eraser").css({
+      'background-color': '#f9bc60'
+    });
+  }
+});
 //ペン・消しゴム背景色切替ここまで
 
 
@@ -803,7 +822,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 //画像の貼り付け（ドラッグアンドドロップ）ここまで
-
 
 var db = firebase.firestore();
 var cookies = document.cookie;
