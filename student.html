@@ -72,23 +72,19 @@
                 //console.log(passd);
                 var pass = $('#pass').val();
                 //console.log(pass);
-
+                name = escapeHTML($('#name').val());
                 
-                    name = escapeHTML($('#name').val());
-                    var roomid = id;
+                var roomid = id;
                     //console.log(name);
-
-                function addname() {
-                    placen.add({
-                        name: name
-                    });
-                    location.href = "main-st.html"
-                }
+                placen.add({
+                    name: name
+                });
 
                 if(pass == passd && name){
                     addname;
                     document.cookie = "id="+encodeURIComponent(roomid);
                     document.cookie = "name="+name;
+                    location.href = "main-st.html";
                 }else{
                     console.log(passd);
                     alert("パスワードが違います。");
