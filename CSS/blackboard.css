@@ -87,6 +87,14 @@ body{
     color: #f9bc60;
 }
 
+#help{
+    cursor: pointer;
+}
+
+#help:hover{
+    color: #f9bc60;
+}
+
 #showurl{
     cursor: pointer;
 }
