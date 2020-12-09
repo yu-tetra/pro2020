@@ -329,6 +329,19 @@ document.getElementById("exit").onclick = function () {
 };
 //退出処理ここまで
 
+//ヘルプ表示
+document.getElementById("help").onclick = function(){
+  Swal.fire({
+    customClass: 'swal_w',
+    confirmButtonColor: '#f9bc60',
+    imageUrl: './Picture/ヘルプ.jpg',
+    imageWidth: 800,
+    imageHeight: 453,
+    confirmButtonText: '閉じる',
+})
+  };
+//ヘルプ表示ここまで
+
 //URL表示
 document.getElementById("showurl").onclick = function(){
   Swal.fire({

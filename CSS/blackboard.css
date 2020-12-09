@@ -442,6 +442,10 @@ label input{
     transition-duration: 0.3s;
 } */
 
+.swal_w {
+    width: 800px !important;
+}
+
 /* 生徒用 */
 #tool_s{
     height: auto;
