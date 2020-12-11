@@ -16,7 +16,6 @@ $('#canvas').attr('height', h);
 $('#canvas2').attr('width', w);
 $('#canvas2').attr('height', h);
 
-
  var cnvColor = "255, 255, 255, 1";  // 線の色(赤、緑、青、透明度)初期値
  var cnvBold = 3;  // 線の太さ
  var e_cnvBold = 10;  // 線の太さ（消しゴム）
@@ -447,7 +446,7 @@ document.getElementById("sendtxt").onclick = function gettxt() {
 //キャンバスに文字を書く
 function drawtext(text) {
   //文字のスタイル
-  ctx.font = '32px meiryo,sans-serif';
+  ctx.font = '32px sans-serif,meiryo';
   ctx.fillStyle = color;
 
   //文字描画位置の指定・文字描画

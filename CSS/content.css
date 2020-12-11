@@ -23,6 +23,7 @@ form{
 
 .in{
     margin-left: 20px;
+    margin-bottom: 15px;
     width: 480px;
     height: 45px;
 }
@@ -30,7 +31,7 @@ form{
 #submit{
     margin-left: 50vw;
     font-size: 1.5em;
-    padding: 8px 10px;
+    padding: 10px 12px;
     background-color: #f9bc60;
     color: #001e1d;
     cursor: pointer;
@@ -46,7 +47,8 @@ form{
 }
 
 #cb{
-    padding: 8px 10px;
+    margin-left: 8px;
+    padding: 10px 12px;
     background-color: #f9bc60;
     color: #001e1d;
     cursor: pointer;
@@ -65,6 +67,7 @@ form{
     height: 40px;
     width: 380px;
     outline: none;
+    margin-bottom: 5;
 }
 
 

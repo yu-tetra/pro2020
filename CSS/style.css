@@ -4,8 +4,22 @@
     padding: 0;
 }
 
+@font-face {
+    font-family: 'Font';
+    src: url('./fonts/TanukiMagic.ttf');
+}
+
 body{
     background-color: #004643;
-    /* font-family: "Kokoro"; */
+    font-family: "Font";
     color: white;
+}
+
+#submit{
+    font-family: "Font";
+}
+
+button{
+    font-family: "Font";
+    padding: 10;
 }

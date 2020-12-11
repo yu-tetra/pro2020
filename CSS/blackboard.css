@@ -1,19 +1,26 @@
 @charset "UTF-8";
 
- /**/
-
 *{
     margin: 0;
     padding: 0;
 }
 
+@font-face {
+    font-family: 'Font';
+    src: url('./fonts/TanukiMagic.ttf');
+}
+
+
 html, body{
     overflow: hidden;   /* スクロールさせない */
 }
 
+body, button{
+    font-family: "Font";
+}
+
 body{
     background-color: #004643;
-    /* font-family: "Kokoro"; */
     color: #fffffe;
     margin: 0;
     padding: 0;
@@ -109,37 +116,37 @@ body{
 
 #p_big{
     cursor: pointer;
-    padding: 2;
+    padding: 4;
 }
 
 #p_mid{
     cursor: pointer;
-    padding: 2;
+    padding: 4;
 }
 
 #p_sm{
     cursor: pointer;
-    padding: 2;
+    padding: 4;
 }
 
 #e_big{
     cursor: pointer;
-    padding: 2;
+    padding: 4;
 }
 
 #e_mid{
     cursor: pointer;
-    padding: 2;
+    padding: 4;
 }
 
 #e_sm{
     cursor: pointer;
-    padding: 2;
+    padding: 4;
 }
 
 #m_close{
     cursor: pointer;
-    padding: 2;
+    padding: 4;
 }
 
 #txt{
@@ -236,6 +243,8 @@ body{
     width: 100px;
     height: 40px;
     cursor: pointer;
+    margin-bottom: 20;
+    border-radius: 4px;
 }
 .color {
     position   : relative;             /* 指定した分だけ相対的に移動 */
@@ -264,13 +273,14 @@ body{
   }
 
 #c_close{
-    padding: 2;
+    padding: 4;
 }
  
 .eraser{
     width: 100px;
     height: 90px;
     cursor: pointer;
+    border-radius: 4px;
 }
 
 .clear{
@@ -297,8 +307,10 @@ li {
     color: #f9bc60;
 }
 
-#dl {
-    padding: 0.8% 0.9%;
+#dlimg {
+    margin-left: 20px;
+    margin-top: 20px;
+    padding:  10 10;
     cursor: pointer;
     background-color: #f9bc60;
     color: #001e1d;
@@ -306,10 +318,10 @@ li {
     border-radius: 4px;
     border-bottom: 3px solid #d37800;
     outline: none;
-    font-size: 1em;
+    font-size: 1.1em;
 }
 
-#dl:active {
+#dlimg:active {
     transform: translateY(3px);
     border-bottom: none;
     outline: none;
@@ -324,7 +336,7 @@ li {
     border-radius: 4px;
     border-bottom: 3px solid #d37800;
     outline: none;
-    font-size: 1em;
+    font-size: 1.1em;
 }
 
 #zoom_b:active {
@@ -358,6 +370,7 @@ li {
     border: 1px solid #001e1d;
     height: 30px;
     width: 10vw;
+    font-family: sans-serif;
 }
 
 #disp{
@@ -374,7 +387,7 @@ li {
 .btn{
     float: right;
     margin: 0 40 0 0;
-    padding: 1% 2%;
+    padding: 2% 3%;
     cursor: pointer;
     background-color: #f9bc60;
     color: #001e1d;
@@ -392,24 +405,25 @@ li {
 
 table.tdisp td{
     border-bottom: solid 1px #abd1c6;
+    font-family: sans-serif;
 }
 
 #upbutton{
     display: block;
-    width: 150px;
+    width: 155px;
     height: 30px;
     position: absolute;
     right: 65;
     bottom: 15;
-    margin: 0;
+    margin: 0 0 8 10;
     padding: 10;
     cursor: pointer;
-
     background-color: #f9bc60;
     color: #001e1d;
     text-decoration: none;
     border-radius: 4px;
     border-bottom: 3px solid #d37800;
+    font-size: 1.1em;
 }
 
 #upbutton:active {
@@ -462,7 +476,7 @@ label input{
 }
 
 #exit_s{
-    padding: 3 6;
+    padding: 6 9;
     cursor: pointer;
     background-color: #f9bc60;
     color: #001e1d;
@@ -482,25 +496,4 @@ label input{
     outline: none;
 }
 
-#dlimg {
-    margin-left: 40px;
-    margin-top: 20px;
-    padding: 0.8% 0.8%;
-    cursor: pointer;
-    background-color: #f9bc60;
-    color: #001e1d;
-    text-decoration: none;
-    border-radius: 4px;
-    border-bottom: 3px solid #d37800;
-    outline: none;
-    font-size: 1.1em;
-}
-
-#dlimg:active {
-    transform: translateY(3px);
-    border-bottom: none;
-    outline: none;
-}
 /* 生徒用 */
-
-    
