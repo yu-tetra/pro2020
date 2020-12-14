@@ -64,6 +64,10 @@ body{
     padding: 0.2em 0.5em;
 }
 
+#menu:hover{
+    background-color: #abd1c6;
+}
+
 .menulist1 {
     display: none;
     z-index: 2;
@@ -158,6 +162,10 @@ body{
     padding: 0.2em 0.5em;
 }
 
+#txt:hover{
+    background-color: #abd1c6;
+}
+
 #txt :after{
         position: absolute;
         content: '';
@@ -205,6 +213,10 @@ body{
 
 }
 
+#straight:hover{
+    background-color: #abd1c6;
+}
+
 #straight :after{
     position: absolute;
     content: '';
@@ -215,10 +227,6 @@ body{
     border-color: #fff #fff  #13635f;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
-#straight :hover{
-    transform: scale(1.1,1.1);
-    transition-duration: 0.3s;
-}
 
 #wave{
     writing-mode: vertical-rl;
@@ -228,6 +236,11 @@ body{
     border: dashed 2px white;
     padding: 0.2em 0.5em;
 }
+
+#wave:hover{
+    background-color: #abd1c6;
+}
+
 #wave :after{
     position: absolute;
     content: '';
@@ -246,11 +259,13 @@ body{
     margin-bottom: 20;
     border-radius: 4px;
 }
+
 .color {
     position   : relative;             /* 指定した分だけ相対的に移動 */
     cursor   : pointer;                /* カーソルをポインターで表示 */
     z-index: 2;
 }
+
 .palette1{
     display: none;                     /* 要素を非表示 */
     z-index: 2;
@@ -283,6 +298,7 @@ body{
     border-radius: 4px;
 }
 
+
 .clear{
     width: 100px;
     height: 100px;
@@ -305,6 +321,14 @@ li {
 
 #la1 {
     color: #f9bc60;
+}
+
+#la1:hover{
+    background-color: #abd1c6;
+}
+
+#la2:hover{
+    background-color: #abd1c6;
 }
 
 #dlimg {
