@@ -262,69 +262,80 @@ function showmenu() {
 
 //退出確認
 document.getElementById("exit").onclick = function () {
-  var exitresult = confirm("部屋を退出しますか？");
-
-  if (exitresult) {
-      Swal.fire({
-        title: '退出処理をしています。画面を閉じずにお待ちください。',
-        confirmButtonColor: '#f9bc60'
-    })
-    var db = firebase.firestore();
-    var cookies = document.cookie;
-    var cookieItem = cookies.split(";");
-    var elem = cookieItem[0].split("=");
-    var elem1 = cookieItem[1].split("=");
-    var rid = "def";
-    
-    if (elem[0] == "id") {
-      rid = elem[1];
-    } else {
-      rid = elem1[1];
-    };
-    
-    clist = ["canvas","member","chatroom"];
-    dnlist = ["canvas","name","chat"];
-    var cnt = 0;
-    
-    cldelete(clist[cnt],dnlist[cnt]);
-        
-    var size;
-    
-    function cldelete(dcl,dod){
-        var ref = db.collection("rooms").doc(id).collection(dcl);
-    
-        ref.get().then(function (query) {
-            size = query.size // will return the collection size
-            //console.log(size);
-    
-            ref.orderBy(dod).get()
-            .then((querySnapshot) => {
-                for(i=0;i<size;i++){
-                    //console.log(i);
-                    //console.log(querySnapshot["docs"][i].id);
-                    var did = querySnapshot["docs"][i].id;
-          
-                    ref.doc(did).delete().then(function() {        
-                    })
-                }
-              cnt += 1;
-    
-                if(cnt == 3){
-                    //console.log(cnt);
-                    db.collection("rooms").doc(rid).delete().then(function() {
-                      //console.log("Document successfully deleted!");
-                      window.open('about:blank','_self').close();
-                  });
-                }else{
-                    cldelete(clist[cnt],dnlist[cnt]);
-                };
-            });
-            
-        });
-    };
+ Swal.fire({
+   title: '授業を終了し、退室しますか？',
+   icon: 'warning',
+   showCancelButton: true,
+   confirmButtonText: 'OK',
+   cancelButtonText: 'キャンセル' 
+ }).then((result) => {
+  if (result.value) {
+    Swal.fire({
+      title: '退出処理をしています。画面を閉じずにお待ちください。',
+      allowOutsideClick: false,
+      showCloseButton: false,
+      showConfirmButton: false,
+      onBeforeOpen: () => {
+        Swal.showLoading();
+      }
+  });
+  var db = firebase.firestore();
+  var cookies = document.cookie;
+  var cookieItem = cookies.split(";");
+  var elem = cookieItem[0].split("=");
+  var elem1 = cookieItem[1].split("=");
+  var rid = "def";
+  
+  if (elem[0] == "id") {
+    rid = elem[1];
   } else {
-    return;
-  }
+    rid = elem1[1];
+  };
+  
+  clist = ["canvas","member","chatroom"];
+  dnlist = ["canvas","name","chat"];
+  var cnt = 0;
+  
+  cldelete(clist[cnt],dnlist[cnt]);
+      
+  var size;
+  
+  function cldelete(dcl,dod){
+      var ref = db.collection("rooms").doc(id).collection(dcl);
+  
+      ref.get().then(function (query) {
+          size = query.size // will return the collection size
+          //console.log(size);
+  
+          ref.orderBy(dod).get()
+          .then((querySnapshot) => {
+              for(i=0;i<size;i++){
+                  //console.log(i);
+                  //console.log(querySnapshot["docs"][i].id);
+                  var did = querySnapshot["docs"][i].id;
+        
+                  ref.doc(did).delete().then(function() {        
+                  })
+              }
+            cnt += 1;
+  
+              if(cnt == 3){
+                  //console.log(cnt);
+                  db.collection("rooms").doc(rid).delete().then(function() {
+                    //console.log("Document successfully deleted!");
+                    window.open('about:blank','_self').close();
+                });
+              }else{
+                  cldelete(clist[cnt],dnlist[cnt]);
+              };
+          });
+          
+      });
+  };
+} else {
+  return;
+}
+ });
 };
 //退出処理ここまで
 

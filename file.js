@@ -43,7 +43,10 @@ objFile.addEventListener("change", function(evt) {
 
     var ref = firebase.storage().ref().child(image.name);
     ref.put(image).then(function(snapshot) {
-    alert('アップロードしました。');
+    Swal.fire({
+      title: '画像をアップロードしました',
+      icon: 'success'
+    });
 
     ref.getDownloadURL().then(function(url){
       setp.update({
